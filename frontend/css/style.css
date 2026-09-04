@@ -1,6 +1,6 @@
 /* ==========================================================================
    Gazi Fahim Hasan - Human-Crafted SEO Specialist Portfolio
-   Faithfully implemented based on the reference design screenshot.
+   Sleek Deep Black Background with Vibrant Orange Accent (#FF7A00)
    ========================================================================== */
 
 /* Resets */
@@ -18,8 +18,8 @@ html {
 
 body {
   font-family: var(--font-body);
-  background-color: var(--bg-dark-hero);
-  color: var(--text-dark-hero);
+  background-color: var(--bg-black);
+  color: var(--text-body);
   line-height: 1.6;
   overflow-x: hidden;
 }
@@ -30,6 +30,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   line-height: 1.2;
   letter-spacing: -0.02em;
+  color: var(--text-heading);
 }
 
 a {
@@ -69,26 +70,15 @@ img {
   letter-spacing: 0.12em;
   color: var(--orange-primary);
   background: var(--orange-subtle);
+  border: 1px solid var(--orange-border);
   padding: 5px 14px;
   border-radius: var(--radius-full);
   margin-bottom: 14px;
 }
 
-.eyebrow-pill-dark {
-  background: rgba(255, 122, 0, 0.15);
-  color: var(--orange-primary);
-  border: 1px solid var(--orange-border);
-}
-
-.section-title-dark {
+.section-title {
   font-size: clamp(2rem, 3.5vw, 2.75rem);
-  color: #FFFFFF;
-  margin-bottom: 12px;
-}
-
-.section-title-light {
-  font-size: clamp(2rem, 3.5vw, 2.75rem);
-  color: var(--text-light-heading);
+  color: var(--text-heading);
   margin-bottom: 12px;
 }
 
@@ -97,7 +87,7 @@ img {
 }
 
 /* ==========================================================================
-   Header & Navbar (Dark)
+   Header & Navbar (Dark Black)
    ========================================================================== */
 .site-nav {
   position: sticky;
@@ -105,9 +95,9 @@ img {
   left: 0;
   width: 100%;
   height: 80px;
-  background: rgba(15, 16, 21, 0.95);
+  background: rgba(7, 8, 11, 0.95);
   backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid var(--border-subtle);
   z-index: 1000;
 }
 
@@ -154,7 +144,7 @@ img {
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--text-dark-muted);
+  color: var(--text-muted);
 }
 
 .nav-menu a:hover, .nav-menu a.active {
@@ -164,7 +154,7 @@ img {
 .btn-nav-talk {
   padding: 10px 24px;
   border-radius: var(--radius-full);
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   color: #FFFFFF;
   font-size: 0.85rem;
   font-weight: 700;
@@ -180,26 +170,26 @@ img {
 }
 
 /* ==========================================================================
-   Hero Section (Dark Atmosphere with Warm Center Spotlight)
+   Hero Section (Deep Black with Warm Center Spotlight)
    ========================================================================== */
 .hero-wrapper {
-  background: var(--bg-dark-hero);
+  background: var(--bg-black);
   position: relative;
   padding: 70px 0 100px;
   overflow: hidden;
   text-align: center;
 }
 
-/* Subtle Warm Spotlight */
+/* Warm Center Spotlight */
 .hero-wrapper::before {
   content: '';
   position: absolute;
-  top: 20%;
+  top: 15%;
   left: 50%;
-  transform: translate(-50%, -20%);
-  width: 700px;
-  height: 500px;
-  background: radial-gradient(circle, rgba(255, 122, 0, 0.18) 0%, rgba(255, 122, 0, 0.04) 50%, transparent 75%);
+  transform: translate(-50%, -15%);
+  width: 750px;
+  height: 520px;
+  background: radial-gradient(circle, rgba(255, 122, 0, 0.16) 0%, rgba(255, 122, 0, 0.03) 50%, transparent 75%);
   pointer-events: none;
   z-index: 0;
 }
@@ -264,7 +254,7 @@ img {
 
 .hero-sub-text {
   font-size: 1.1rem;
-  color: var(--text-dark-muted);
+  color: var(--text-body);
   max-width: 620px;
   margin: 0 auto;
 }
@@ -285,9 +275,9 @@ img {
   height: 400px;
   border-radius: 200px 200px 30px 30px;
   overflow: hidden;
-  background: linear-gradient(180deg, rgba(255, 122, 0, 0.25) 0%, rgba(20, 22, 30, 0.9) 100%);
+  background: linear-gradient(180deg, rgba(255, 122, 0, 0.25) 0%, rgba(18, 20, 28, 0.95) 100%);
   border: 2px solid rgba(255, 122, 0, 0.4);
-  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.6), 0 0 40px rgba(255, 122, 0, 0.2);
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.7), 0 0 40px rgba(255, 122, 0, 0.2);
 }
 
 .hero-portrait-img {
@@ -302,20 +292,20 @@ img {
   position: absolute;
   top: 80px;
   left: -130px;
-  background: rgba(22, 24, 33, 0.92);
+  background: rgba(19, 21, 30, 0.95);
   backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
   padding: 18px 22px;
   text-align: left;
-  box-shadow: var(--shadow-dark);
+  box-shadow: var(--shadow-card);
   z-index: 2;
   animation: floatSlow 6s ease-in-out infinite;
 }
 
 .analytics-title {
   font-size: 0.78rem;
-  color: var(--text-dark-muted);
+  color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   margin-bottom: 6px;
@@ -352,13 +342,13 @@ img {
   position: absolute;
   bottom: 60px;
   right: -130px;
-  background: rgba(22, 24, 33, 0.92);
+  background: rgba(19, 21, 30, 0.95);
   backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
   padding: 16px 20px;
   text-align: left;
-  box-shadow: var(--shadow-dark);
+  box-shadow: var(--shadow-card);
   z-index: 2;
   max-width: 210px;
   animation: floatReverse 7s ease-in-out infinite;
@@ -380,7 +370,7 @@ img {
   height: 26px;
   border-radius: 50%;
   background: #374151;
-  border: 2px solid #161821;
+  border: 2px solid #13151E;
   margin-left: -8px;
   display: flex;
   align-items: center;
@@ -410,17 +400,18 @@ img {
 
 .reviews-caption {
   font-size: 0.75rem;
-  color: var(--text-dark-muted);
+  color: var(--text-muted);
   line-height: 1.3;
 }
 
 /* ==========================================================================
-   Section 2: About Me (Light Theme - Direct Reference Match)
+   Section 2: About Me (Black Background with Dark Cards)
    ========================================================================== */
 .about-section {
-  background-color: var(--bg-light);
-  color: var(--text-light-body);
+  background-color: var(--bg-black);
+  color: var(--text-body);
   padding: 100px 0;
+  border-top: 1px solid var(--border-subtle);
 }
 
 .about-grid-layout {
@@ -446,6 +437,7 @@ img {
   background: var(--orange-primary);
   border-radius: var(--radius-lg);
   z-index: 0;
+  box-shadow: 0 10px 30px rgba(255, 122, 0, 0.25);
 }
 
 .about-photo-card {
@@ -456,7 +448,8 @@ img {
   overflow: hidden;
   box-shadow: var(--shadow-card);
   z-index: 1;
-  background: #E5E7EB;
+  background: var(--bg-dark-card);
+  border: 1px solid var(--border-subtle);
 }
 
 .about-photo-card img {
@@ -474,9 +467,9 @@ img {
   width: 110px;
   height: 110px;
   border-radius: 50%;
-  background: #FFFFFF;
+  background: var(--bg-dark-card);
   border: 4px solid var(--orange-primary);
-  box-shadow: 0 8px 25px rgba(255, 122, 0, 0.25);
+  box-shadow: 0 8px 25px rgba(255, 122, 0, 0.35);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -497,7 +490,7 @@ img {
   font-size: 0.65rem;
   font-weight: 800;
   text-transform: uppercase;
-  color: var(--text-light-heading);
+  color: #FFFFFF;
   line-height: 1.1;
   margin-top: 2px;
 }
@@ -510,14 +503,14 @@ img {
 
 .about-heading {
   font-size: clamp(2rem, 3vw, 2.5rem);
-  color: var(--text-light-heading);
+  color: var(--text-heading);
   margin-bottom: 18px;
   line-height: 1.2;
 }
 
 .about-desc {
   font-size: 1.05rem;
-  color: var(--text-light-body);
+  color: var(--text-body);
   margin-bottom: 24px;
   line-height: 1.7;
 }
@@ -530,18 +523,20 @@ img {
 }
 
 .tab-pill {
-  padding: 7px 18px;
+  padding: 8px 20px;
   border-radius: var(--radius-full);
   font-size: 0.85rem;
   font-weight: 700;
-  background: #F3F4F6;
-  color: var(--text-light-body);
+  background: var(--bg-dark-card);
+  color: var(--text-body);
+  border: 1px solid var(--border-subtle);
   cursor: pointer;
   transition: all 0.25s ease;
 }
 
 .tab-pill.active, .tab-pill:hover {
   background: var(--orange-primary);
+  border-color: var(--orange-primary);
   color: #FFFFFF;
 }
 
@@ -553,24 +548,29 @@ img {
 }
 
 .about-service-box {
-  padding: 20px 22px;
-  background: #FFFFFF;
-  border: 1px solid var(--border-light);
+  padding: 22px 24px;
+  background: var(--bg-dark-card);
+  border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
   transition: all 0.3s ease;
+}
+
+.about-service-box:hover {
+  border-color: var(--border-strong);
+  background: var(--bg-dark-card-hover);
 }
 
 .about-service-box.active-box {
   border: 2px solid var(--orange-primary);
-  background: var(--orange-subtle);
+  background: rgba(255, 122, 0, 0.08);
+  box-shadow: 0 0 20px rgba(255, 122, 0, 0.15);
 }
 
 .box-number {
   font-size: 0.78rem;
   font-weight: 800;
   text-transform: uppercase;
-  color: var(--text-light-muted);
+  color: var(--text-muted);
   margin-bottom: 6px;
 }
 
@@ -581,23 +581,23 @@ img {
 .box-title {
   font-size: 1.05rem;
   font-weight: 700;
-  color: var(--text-light-heading);
+  color: var(--text-heading);
   margin-bottom: 4px;
 }
 
 .box-sub {
   font-size: 0.82rem;
-  color: var(--text-light-muted);
+  color: var(--text-muted);
 }
 
 /* ==========================================================================
-   Section 3: Solid Orange Ribbon Banner (Exact Reference Match)
+   Section 3: Solid Orange Ribbon Banner
    ========================================================================== */
 .orange-ribbon-ticker {
   background: var(--orange-primary);
   color: #FFFFFF;
   padding: 20px 0;
-  box-shadow: 0 6px 20px rgba(255, 122, 0, 0.35);
+  box-shadow: 0 6px 25px rgba(255, 122, 0, 0.4);
 }
 
 .ribbon-grid {
@@ -624,11 +624,12 @@ img {
 }
 
 /* ==========================================================================
-   Section 4: Portfolio Works (Light - Exact Reference Match)
+   Section 4: Portfolio Works (Black Background with Dark Cards)
    ========================================================================== */
 .portfolio-section {
-  background-color: var(--bg-light-alt);
+  background-color: var(--bg-black-alt);
   padding: 100px 0;
+  border-top: 1px solid var(--border-subtle);
 }
 
 .portfolio-header-flex {
@@ -653,6 +654,7 @@ img {
 .btn-outline-pill:hover {
   background: var(--orange-primary);
   color: #FFFFFF;
+  box-shadow: 0 4px 15px rgba(255, 122, 0, 0.3);
 }
 
 .works-grid-2x2 {
@@ -662,11 +664,12 @@ img {
 }
 
 .work-card {
-  background: #FFFFFF;
+  background: var(--bg-dark-card);
+  border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow-card);
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -674,7 +677,8 @@ img {
 
 .work-card:hover {
   transform: translateY(-6px);
-  box-shadow: var(--shadow-hover);
+  border-color: var(--orange-primary);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
 }
 
 .work-thumbnail-wrapper {
@@ -682,6 +686,7 @@ img {
   height: 280px;
   overflow: hidden;
   position: relative;
+  background: #0D0E14;
 }
 
 .work-thumbnail-wrapper img {
@@ -700,6 +705,7 @@ img {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background: var(--bg-dark-card);
 }
 
 .work-cat {
@@ -707,14 +713,14 @@ img {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--text-light-muted);
+  color: var(--orange-primary);
   margin-bottom: 4px;
 }
 
 .work-title {
   font-size: 1.25rem;
   font-weight: 800;
-  color: var(--text-light-heading);
+  color: var(--text-heading);
 }
 
 /* Signature Orange Square Arrow Button */
@@ -739,12 +745,13 @@ img {
 }
 
 /* ==========================================================================
-   Section 5: Brand Logos (Dark Section - Exact Reference Match)
+   Section 5: Brand Trust Section (Dark Black)
    ========================================================================== */
 .brands-section {
-  background-color: var(--bg-dark-section);
+  background-color: var(--bg-black);
   padding: 90px 0;
   text-align: center;
+  border-top: 1px solid var(--border-subtle);
 }
 
 .brands-grid {
@@ -756,7 +763,7 @@ img {
 
 .brand-box {
   background: var(--bg-dark-card);
-  border: 1px solid var(--border-dark);
+  border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
   padding: 28px 20px;
   display: flex;
@@ -769,6 +776,7 @@ img {
 
 .brand-box:hover {
   border-color: var(--orange-primary);
+  background: var(--bg-dark-card-hover);
   transform: translateY(-4px);
 }
 
@@ -788,16 +796,17 @@ img {
 
 .brand-sub {
   font-size: 0.75rem;
-  color: var(--text-dark-muted);
+  color: var(--text-muted);
 }
 
 /* ==========================================================================
-   Section 6: Pricing & Packaging (Light - Middle Card Solid Orange)
+   Section 6: Pricing & Packaging (Black Background with Featured Solid Orange)
    ========================================================================== */
 .pricing-section {
-  background-color: var(--bg-light);
+  background-color: var(--bg-black-alt);
   padding: 100px 0;
   text-align: center;
+  border-top: 1px solid var(--border-subtle);
 }
 
 .pricing-cards-grid {
@@ -809,19 +818,20 @@ img {
 }
 
 .pricing-card {
-  background: #FFFFFF;
-  border: 1px solid var(--border-light);
+  background: var(--bg-dark-card);
+  border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
   padding: 40px 32px;
   box-shadow: var(--shadow-card);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: transform 0.35s ease;
+  transition: transform 0.35s ease, border-color 0.35s ease;
 }
 
 .pricing-card:hover {
   transform: translateY(-8px);
+  border-color: var(--border-strong);
 }
 
 /* Featured Solid Orange Card */
@@ -829,7 +839,7 @@ img {
   background: var(--orange-primary);
   color: #FFFFFF;
   border-color: var(--orange-primary);
-  box-shadow: 0 16px 40px rgba(255, 122, 0, 0.35);
+  box-shadow: 0 16px 45px rgba(255, 122, 0, 0.4);
   transform: scale(1.04);
 }
 
@@ -841,7 +851,7 @@ img {
   font-size: 1.25rem;
   font-weight: 800;
   margin-bottom: 12px;
-  color: var(--text-light-heading);
+  color: var(--text-heading);
 }
 
 .pricing-card.card-featured-orange .pricing-name {
@@ -880,7 +890,7 @@ img {
   display: flex;
   align-items: center;
   gap: 10px;
-  color: var(--text-light-body);
+  color: var(--text-body);
 }
 
 .pricing-card.card-featured-orange .pricing-features li {
@@ -916,24 +926,26 @@ img {
 .btn-pricing-orange:hover {
   background: var(--orange-primary);
   color: #FFFFFF;
+  box-shadow: 0 4px 15px rgba(255, 122, 0, 0.35);
 }
 
 .btn-pricing-dark {
-  background: #111215;
+  background: #08090C;
   color: #FFFFFF;
 }
 
 .btn-pricing-dark:hover {
   background: #000000;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
 }
 
 /* ==========================================================================
-   Section 7: Testimonials (Light - Client Blob Shape Match)
+   Section 7: Testimonials (Black Background)
    ========================================================================== */
 .testimonials-section {
-  background-color: var(--bg-light-alt);
+  background-color: var(--bg-black);
   padding: 100px 0;
+  border-top: 1px solid var(--border-subtle);
 }
 
 .testimonial-layout {
@@ -953,26 +965,26 @@ img {
 .testimonial-headline {
   font-size: 1.5rem;
   font-weight: 800;
-  color: var(--text-light-heading);
+  color: var(--text-heading);
   margin-bottom: 16px;
 }
 
 .testimonial-quote-text {
   font-size: 1.15rem;
   line-height: 1.75;
-  color: var(--text-light-body);
+  color: var(--text-body);
   margin-bottom: 28px;
 }
 
 .client-author-box h4 {
   font-size: 1.1rem;
-  color: var(--text-light-heading);
+  color: var(--text-heading);
   margin-bottom: 2px;
 }
 
 .client-author-box p {
   font-size: 0.85rem;
-  color: var(--text-light-muted);
+  color: var(--text-muted);
 }
 
 /* Fluid Organic Blob Stage on the Right */
@@ -991,6 +1003,7 @@ img {
   border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
   transform: rotate(-10deg);
   z-index: 0;
+  box-shadow: 0 10px 30px rgba(255, 122, 0, 0.3);
 }
 
 .blob-backdrop-dark {
@@ -999,7 +1012,7 @@ img {
   left: -15px;
   width: 95%;
   height: 95%;
-  background: #111215;
+  background: #08090C;
   border-radius: 50% 50% 40% 60% / 50% 40% 60% 50%;
   z-index: 1;
 }
@@ -1022,12 +1035,13 @@ img {
 }
 
 /* ==========================================================================
-   Section 8: Working Process (Connected 3 Circles)
+   Section 8: Working Process (Black Background with Dark Cards)
    ========================================================================== */
 .process-section {
-  background-color: var(--bg-light);
+  background-color: var(--bg-black-alt);
   padding: 100px 0;
   text-align: center;
+  border-top: 1px solid var(--border-subtle);
 }
 
 .process-circles-flow {
@@ -1039,8 +1053,8 @@ img {
 }
 
 .process-circle-card {
-  background: #FFFFFF;
-  border: 1px solid var(--border-light);
+  background: var(--bg-dark-card);
+  border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
   padding: 48px 28px;
   box-shadow: var(--shadow-card);
@@ -1053,6 +1067,7 @@ img {
 .process-circle-card:hover {
   transform: translateY(-6px);
   border-color: var(--orange-primary);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
 }
 
 .process-ring {
@@ -1065,43 +1080,43 @@ img {
   justify-content: center;
   font-size: 2rem;
   margin-bottom: 24px;
-  box-shadow: 0 0 25px rgba(255, 122, 0, 0.2);
 }
 
 .ring-blue {
   border-color: #3B82F6;
-  box-shadow: 0 0 25px rgba(59, 130, 246, 0.2);
+  box-shadow: 0 0 25px rgba(59, 130, 246, 0.3);
 }
 
 .ring-orange {
   border-color: var(--orange-primary);
-  box-shadow: 0 0 25px rgba(255, 122, 0, 0.2);
+  box-shadow: 0 0 25px rgba(255, 122, 0, 0.3);
 }
 
 .ring-green {
   border-color: #10B981;
-  box-shadow: 0 0 25px rgba(16, 185, 129, 0.2);
+  box-shadow: 0 0 25px rgba(16, 185, 129, 0.3);
 }
 
 .process-title-step {
   font-size: 1.35rem;
   font-weight: 800;
-  color: var(--text-light-heading);
+  color: var(--text-heading);
   margin-bottom: 12px;
 }
 
 .process-p {
   font-size: 0.9rem;
-  color: var(--text-light-body);
+  color: var(--text-body);
   line-height: 1.6;
 }
 
 /* ==========================================================================
-   Section 9: Articles & Tutorials (Light - Match)
+   Section 9: Articles & Tutorials (Black Background)
    ========================================================================== */
 .articles-section {
-  background-color: var(--bg-light-alt);
+  background-color: var(--bg-black);
   padding: 100px 0;
+  border-top: 1px solid var(--border-subtle);
 }
 
 .articles-header-flex {
@@ -1118,18 +1133,19 @@ img {
 }
 
 .article-card {
-  background: #FFFFFF;
+  background: var(--bg-dark-card);
+  border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow-card);
-  transition: transform 0.35s ease;
+  transition: transform 0.35s ease, border-color 0.35s ease;
   display: flex;
   flex-direction: column;
 }
 
 .article-card:hover {
   transform: translateY(-6px);
-  box-shadow: var(--shadow-hover);
+  border-color: var(--orange-primary);
 }
 
 .article-thumb-wrapper {
@@ -1137,6 +1153,7 @@ img {
   height: 220px;
   overflow: hidden;
   position: relative;
+  background: #0D0E14;
 }
 
 .article-thumb-wrapper img {
@@ -1181,7 +1198,7 @@ img {
 .article-title {
   font-size: 1.15rem;
   font-weight: 800;
-  color: var(--text-light-heading);
+  color: var(--text-heading);
   line-height: 1.4;
   margin-bottom: 16px;
 }
@@ -1192,7 +1209,7 @@ img {
   gap: 8px;
   font-size: 0.82rem;
   font-weight: 700;
-  color: var(--text-light-heading);
+  color: var(--text-heading);
   text-transform: uppercase;
   transition: color 0.2s ease;
 }
@@ -1202,14 +1219,15 @@ img {
 }
 
 /* ==========================================================================
-   Section 10: Footer / "Let's Talk" (Dark Finish Match)
+   Section 10: Footer / "Let's Talk" (Pure Black Finish)
    ========================================================================== */
 .footer-wrapper {
-  background-color: #0A0B0E;
+  background-color: #040507;
   color: #FFFFFF;
   padding: 100px 0 40px;
   position: relative;
   overflow: hidden;
+  border-top: 1px solid var(--border-subtle);
 }
 
 .footer-main-grid {
@@ -1217,7 +1235,7 @@ img {
   grid-template-columns: 1.1fr 0.9fr;
   gap: 60px;
   padding-bottom: 60px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid var(--border-subtle);
 }
 
 .footer-heading {
@@ -1237,7 +1255,7 @@ img {
 
 .footer-contact-link {
   font-size: 1.1rem;
-  color: var(--text-dark-muted);
+  color: var(--text-body);
   display: flex;
   align-items: center;
   gap: 10px;
@@ -1273,11 +1291,11 @@ img {
 
 /* Footer Lead & Audit Form */
 .footer-form-box {
-  background: #14161F;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--bg-dark-card);
+  border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
   padding: 36px;
-  box-shadow: var(--shadow-dark);
+  box-shadow: var(--shadow-card);
 }
 
 .footer-form-title {
@@ -1294,8 +1312,8 @@ img {
 .footer-input {
   width: 100%;
   padding: 14px 18px;
-  background: #1C1E2A;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: #0B0C11;
+  border: 1px solid var(--border-subtle);
   border-radius: var(--radius-sm);
   color: #FFFFFF;
   font-size: 0.92rem;
@@ -1331,7 +1349,7 @@ img {
   justify-content: space-between;
   align-items: center;
   font-size: 0.85rem;
-  color: var(--text-dark-muted);
+  color: var(--text-muted);
 }
 
 /* ==========================================================================

@@ -1,27 +1,28 @@
 :root {
-  /* Brand Primary Vibrant Orange (Directly from Reference Screenshot) */
+  /* Brand Primary Vibrant Orange */
   --orange-primary: #FF7A00;
   --orange-hover: #E86B00;
-  --orange-subtle: #FFF5EC;
-  --orange-tint: rgba(255, 122, 0, 0.08);
-  --orange-border: rgba(255, 122, 0, 0.35);
+  --orange-subtle: rgba(255, 122, 0, 0.14);
+  --orange-tint: rgba(255, 122, 0, 0.07);
+  --orange-border: rgba(255, 122, 0, 0.4);
+  --orange-glow: 0 0 30px rgba(255, 122, 0, 0.25);
 
-  /* Dark Theme Sections (Hero, Brands, Footer) */
-  --bg-dark-hero: #0F1015;
-  --bg-dark-section: #121319;
-  --bg-dark-card: #181A22;
-  --text-dark-hero: #FFFFFF;
-  --text-dark-muted: #9BA0AE;
-  --border-dark: rgba(255, 255, 255, 0.1);
+  /* Unified Deep Black & Dark Theme Palette */
+  --bg-black: #07080B;
+  --bg-black-alt: #0D0E14;
+  --bg-dark-card: #13151E;
+  --bg-dark-card-hover: #1A1C28;
+  
+  /* Text */
+  --text-heading: #FFFFFF;
+  --text-body: #9FA6B2;
+  --text-muted: #6B7280;
 
-  /* Light Theme Sections (About, Pricing, Works, Process, Testimonials) */
-  --bg-light: #FFFFFF;
-  --bg-light-alt: #F8F9FC;
-  --bg-light-card: #FFFFFF;
-  --text-light-heading: #121318;
-  --text-light-body: #555B68;
-  --text-light-muted: #848A96;
-  --border-light: rgba(0, 0, 0, 0.08);
+  /* Borders & Shadows */
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.16);
+  --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.45);
+  --shadow-hover: 0 16px 40px rgba(0, 0, 0, 0.6);
 
   /* Typography */
   --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -33,9 +34,4 @@
   --radius-md: 16px;
   --radius-lg: 24px;
   --radius-full: 9999px;
-
-  /* Shadows */
-  --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.06);
-  --shadow-hover: 0 18px 40px rgba(255, 122, 0, 0.18);
-  --shadow-dark: 0 14px 35px rgba(0, 0, 0, 0.45);
 }
