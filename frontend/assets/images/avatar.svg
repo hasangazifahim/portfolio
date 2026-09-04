@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 480" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1B1E28"/>
+      <stop offset="100%" stop-color="#0E1017"/>
+    </linearGradient>
+    <linearGradient id="amber-accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF6B00"/>
+      <stop offset="100%" stop-color="#FFA800"/>
+    </linearGradient>
+    <radialGradient id="halo-glow" cx="50%" cy="35%" r="60%">
+      <stop offset="0%" stop-color="#FF6B00" stop-opacity="0.35"/>
+      <stop offset="60%" stop-color="#FF8A00" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="soft-shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="15" flood-color="#000000" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="400" height="480" rx="20" fill="url(#bg-grad)"/>
+
+  <!-- Glowing Aura / Halo -->
+  <circle cx="200" cy="180" r="160" fill="url(#halo-glow)"/>
+
+  <!-- Geometric Orange Brand Frame Behind -->
+  <rect x="50" y="70" width="300" height="340" rx="16" fill="none" stroke="url(#amber-accent)" stroke-width="2" stroke-dasharray="6,6" opacity="0.4"/>
+  <rect x="70" y="50" width="260" height="380" rx="20" fill="none" stroke="url(#amber-accent)" stroke-width="1.5" opacity="0.3"/>
+
+  <!-- Character Group with Soft Shadow -->
+  <g filter="url(#soft-shadow)">
+    <!-- Suit Body -->
+    <path d="M90 480 L130 310 L165 315 L185 365 L215 365 L235 315 L270 310 L310 480 Z" fill="#111319"/>
+    
+    <!-- Suit Lapels -->
+    <path d="M130 310 L175 420 L200 480 L185 480 L145 365 Z" fill="#1C1F2B"/>
+    <path d="M270 310 L225 420 L200 480 L215 480 L255 365 Z" fill="#1C1F2B"/>
+
+    <!-- White Dress Shirt -->
+    <polygon points="175,315 225,315 210,410 190,410" fill="#F1F5F9"/>
+
+    <!-- Dark Tie with Subtle Orange Accent Stripe -->
+    <polygon points="194,330 206,330 209,420 200,435 191,420" fill="#0A0C10"/>
+    <line x1="194" y1="365" x2="206" y2="368" stroke="#FF6B00" stroke-width="2"/>
+    <line x1="193" y1="385" x2="207" y2="388" stroke="#FFA800" stroke-width="2"/>
+
+    <!-- Neck -->
+    <path d="M178 260 L222 260 L225 320 L175 320 Z" fill="#D29979"/>
+    <!-- Neck Shadow -->
+    <path d="M182 260 L218 260 L214 290 L186 290 Z" fill="#B37858"/>
+
+    <!-- Head & Face -->
+    <ellipse cx="200" cy="205" rx="52" ry="65" fill="#E2A684"/>
+
+    <!-- Ears -->
+    <ellipse cx="146" cy="210" rx="8" ry="14" fill="#D29979"/>
+    <ellipse cx="254" cy="210" rx="8" ry="14" fill="#D29979"/>
+
+    <!-- Modern Dark Hair & Side Parting -->
+    <path d="M146 195 C142 145, 170 125, 205 125 C245 125, 258 145, 254 195 C250 170, 240 148, 205 148 C175 148, 155 165, 146 195 Z" fill="#1A1817"/>
+    <!-- Volume Top Hair -->
+    <path d="M152 165 C158 120, 200 115, 242 125 C252 128, 256 142, 254 158 C240 138, 208 132, 175 138 C160 142, 154 152, 152 165 Z" fill="#262322"/>
+
+    <!-- Eyebrows -->
+    <path d="M165 186 Q178 181 190 185" stroke="#1A1817" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+    <path d="M210 185 Q222 181 235 186" stroke="#1A1817" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+
+    <!-- Eyes -->
+    <ellipse cx="178" cy="197" rx="6.5" ry="4" fill="#FFFFFF"/>
+    <circle cx="179" cy="197" r="3.2" fill="#2A1B14"/>
+    <circle cx="180" cy="195.5" r="1" fill="#FFFFFF"/>
+
+    <ellipse cx="222" cy="197" rx="6.5" ry="4" fill="#FFFFFF"/>
+    <circle cx="221" cy="197" r="3.2" fill="#2A1B14"/>
+    <circle cx="222" cy="195.5" r="1" fill="#FFFFFF"/>
+
+    <!-- Nose -->
+    <path d="M198 195 L196 218 L204 220" stroke="#B37858" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+
+    <!-- Mustache & Beard (Reflecting Gazi Fahim Hasan's CV Portrait) -->
+    <path d="M182 230 Q200 236 218 230 Q208 238 182 230 Z" fill="#1E1B1A"/>
+    <path d="M178 238 Q200 248 222 238 Q200 252 178 238 Z" fill="#1E1B1A"/>
+    <!-- Chin Beard Outline -->
+    <path d="M172 232 Q168 260 200 270 Q232 260 228 232 Q222 262 200 264 Q178 262 172 232 Z" fill="#1A1817" opacity="0.95"/>
+
+    <!-- Confident Smile Lips -->
+    <path d="M188 234 Q200 240 212 234" stroke="#B86F58" stroke-width="2" stroke-linecap="round" fill="none"/>
+  </g>
+
+  <!-- Laptop / SEO Command Center Illusion at Bottom -->
+  <path d="M120 440 L280 440 L300 480 L100 480 Z" fill="#1E222D" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <rect x="145" y="446" width="110" height="4" rx="2" fill="url(#amber-accent)"/>
+</svg>

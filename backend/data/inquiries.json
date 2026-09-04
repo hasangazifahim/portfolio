@@ -1,0 +1,24 @@
+[
+  {
+    "id": "msg_1788531472852_el9fg",
+    "type": "contact_message",
+    "createdAt": "2026-09-04T14:17:52.852Z",
+    "name": "Sarah Miller",
+    "email": "sarah@growthbrands.io",
+    "message": "Interested in hiring for a full SEO campaign.",
+    "service": "Full SEO Campaign",
+    "budget": "Flexible",
+    "status": "new"
+  },
+  {
+    "id": "audit_1788531472832_gt3nz",
+    "type": "seo_audit_request",
+    "createdAt": "2026-09-04T14:17:52.832Z",
+    "name": "John Test",
+    "email": "john@ecommerce.com",
+    "websiteUrl": "https://ecommerce.com",
+    "targetKeywords": "sustainable footwear",
+    "monthlyTraffic": "5,000 - 25,000",
+    "status": "pending_review"
+  }
+]
