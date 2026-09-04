@@ -1,5 +1,16 @@
 [
   {
+    "id": "audit_1788535398628_h8m3g",
+    "type": "seo_audit_request",
+    "createdAt": "2026-09-04T15:23:18.628Z",
+    "name": "Marcus Vance",
+    "email": "marcus@growthmedia.com",
+    "websiteUrl": "https://growthmedia.com",
+    "targetKeywords": "digital marketing agency london",
+    "monthlyTraffic": "Not specified",
+    "status": "pending_review"
+  },
+  {
     "id": "msg_1788531472852_el9fg",
     "type": "contact_message",
     "createdAt": "2026-09-04T14:17:52.852Z",

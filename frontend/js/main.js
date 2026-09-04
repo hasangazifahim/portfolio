@@ -1,259 +1,119 @@
 /**
- * Gazi Fahim Hasan Portfolio - Core Interactions & UI Controller
+ * Gazi Fahim Hasan Portfolio - Interactions Controller
  */
 
-import { submitContactForm, submitAuditRequest } from './api.js';
+import { submitAuditRequest } from './api.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-  initThemeToggle();
-  initMobileMenu();
-  initCounters();
-  initServicesAccordion();
-  initFormTabs();
-  initContactForms();
-  initScrollSpy();
+  initAboutTabs();
+  initFooterForm();
 });
 
-/* Theme Toggle (Dark / Light) */
-function initThemeToggle() {
-  const toggleBtn = document.getElementById('theme-toggle');
-  if (!toggleBtn) return;
+/* About Tabs Switcher */
+function initAboutTabs() {
+  const tabs = document.querySelectorAll('.tab-pill');
+  const boxes = document.querySelectorAll('.about-service-box');
 
-  const currentTheme = localStorage.getItem('theme') || 'dark';
-  document.documentElement.setAttribute('data-theme', currentTheme);
-  updateThemeIcon(currentTheme);
-
-  toggleBtn.addEventListener('click', () => {
-    const activeTheme = document.documentElement.getAttribute('data-theme') || 'dark';
-    const newTheme = activeTheme === 'dark' ? 'light' : 'dark';
-    document.documentElement.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-    updateThemeIcon(newTheme);
-  });
-}
-
-function updateThemeIcon(theme) {
-  const icon = document.getElementById('theme-icon');
-  if (!icon) return;
-  icon.textContent = theme === 'dark' ? '☀️' : '🌙';
-}
-
-/* Mobile Navigation */
-function initMobileMenu() {
-  const toggleBtn = document.getElementById('mobile-toggle');
-  const navLinks = document.querySelector('.nav-links');
-  if (!toggleBtn || !navLinks) return;
-
-  toggleBtn.addEventListener('click', () => {
-    const isExpanded = navLinks.classList.toggle('is-open');
-    toggleBtn.setAttribute('aria-expanded', isExpanded);
-  });
-
-  // Close when clicking link
-  navLinks.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      navLinks.classList.remove('is-open');
-    });
-  });
-}
-
-/* Animated Counters */
-function initCounters() {
-  const counterElements = document.querySelectorAll('.counter-val');
-  if (!counterElements.length) return;
-
-  const observer = new IntersectionObserver((entries, obs) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const el = entry.target;
-        const target = parseInt(el.getAttribute('data-target'), 10);
-        const suffix = el.getAttribute('data-suffix') || '';
-        animateValue(el, 0, target, 1800, suffix);
-        obs.unobserve(el);
-      }
-    });
-  }, { threshold: 0.2 });
-
-  counterElements.forEach(el => observer.observe(el));
-}
-
-function animateValue(obj, start, end, duration, suffix) {
-  let startTimestamp = null;
-  const step = (timestamp) => {
-    if (!startTimestamp) startTimestamp = timestamp;
-    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-    const easeProgress = easeOutQuad(progress);
-    const current = Math.floor(easeProgress * (end - start) + start);
-    obj.textContent = current.toLocaleString() + suffix;
-    if (progress < 1) {
-      window.requestAnimationFrame(step);
-    } else {
-      obj.textContent = end.toLocaleString() + suffix;
-    }
+  const contentMap = {
+    all: [
+      { num: '01 / STRATEGY', title: 'SEO Writing & Intent', sub: 'Content clustering & semantic mapping' },
+      { num: '02 / SPECIALIST', title: 'Technical SEO Architect', sub: 'Core Web Vitals & indexation pipelines', active: true },
+      { num: '03 / AUDIT', title: 'Crawl & Schema Logic', sub: '100+ point full technical health audit' },
+      { num: '04 / GROWTH', title: 'Competitor Intelligence', sub: 'SERP gap analysis & high-DR outreach' }
+    ],
+    education: [
+      { num: '2016 - 2019', title: 'Sonargaon University', sub: 'B.Sc. in Computer Science & Engineering', active: true },
+      { num: 'CORE FOCUS', title: 'Algorithms & Information Retrieval', sub: 'Search engine crawling & computational logic' },
+      { num: 'LEADERSHIP', title: 'Department Recommendations', sub: 'Endorsed by Dept Head Bulbul Ahamed' },
+      { num: 'FOUNDATION', title: 'Web Systems Architecture', sub: 'Server status codes, networking & databases' }
+    ],
+    skills: [
+      { num: 'CORE SEO', title: 'Technical Crawl Audits', sub: '100% crawl optimization, zero broken links', active: true },
+      { num: 'ANALYTICS', title: 'Search Console & GA4', sub: 'Advanced tracking & impression funnel tuning' },
+      { num: 'SEMANTICS', title: 'On-Page Intent Modeling', sub: 'Helpful content systems & entity markup' },
+      { num: 'AUTHORITY', title: 'Off-Page Link Strategy', sub: 'White-hat high-DR editorial outreach' }
+    ],
+    experience: [
+      { num: '2025 - PRESENT', title: 'Scaleup Ads Agency', sub: 'SEO Executive supervising SEO team targets', active: true },
+      { num: '2024 - PRESENT', title: 'Freelance SEO Specialist', sub: 'Direct client consulting & high-ROI roadmaps' },
+      { num: '2024 - 2024', title: 'United Interpreters', sub: 'Bilingual Training Assistant / Interpreter' },
+      { num: 'GLOBAL ACCTS', title: 'E-Commerce & SaaS', sub: 'Multi-location and international SERP campaigns' }
+    ]
   };
-  window.requestAnimationFrame(step);
-}
 
-function easeOutQuad(x) {
-  return 1 - (1 - x) * (1 - x);
-}
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
 
-/* Services Drawer / Accordion (Reference 2 Inspired) */
-function initServicesAccordion() {
-  const drawerItems = document.querySelectorAll('.service-drawer-item');
-  drawerItems.forEach((item, index) => {
-    // Make first item active by default
-    if (index === 0) item.classList.add('is-active');
+      const target = tab.getAttribute('data-tab');
+      const items = contentMap[target] || contentMap.all;
 
-    item.addEventListener('click', () => {
-      drawerItems.forEach(other => {
-        if (other !== item) other.classList.remove('is-active');
+      boxes.forEach((box, i) => {
+        if (items[i]) {
+          box.querySelector('.box-number').textContent = items[i].num;
+          box.querySelector('.box-title').textContent = items[i].title;
+          box.querySelector('.box-sub').textContent = items[i].sub;
+          if (items[i].active) {
+            box.classList.add('active-box');
+          } else {
+            box.classList.remove('active-box');
+          }
+        }
       });
-      item.classList.toggle('is-active');
     });
   });
 }
 
-/* Form Tabs Switcher (Audit vs General Message) */
-function initFormTabs() {
-  const tabBtns = document.querySelectorAll('.form-tab-btn');
-  const auditFields = document.getElementById('audit-fields');
-  const messageFields = document.getElementById('message-fields');
-  const submitBtnText = document.getElementById('submit-btn-text');
-
-  tabBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      tabBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-
-      const target = btn.getAttribute('data-tab');
-      if (target === 'audit') {
-        if (auditFields) auditFields.style.display = 'block';
-        if (messageFields) messageFields.style.display = 'none';
-        if (submitBtnText) submitBtnText.textContent = 'Request Free Audit Report (24h)';
-      } else {
-        if (auditFields) auditFields.style.display = 'none';
-        if (messageFields) messageFields.style.display = 'block';
-        if (submitBtnText) submitBtnText.textContent = 'Send Consultation Message';
-      }
-    });
-  });
-}
-
-/* Form Submission Handler */
-function initContactForms() {
-  const form = document.getElementById('lead-form');
-  const feedback = document.getElementById('form-feedback');
-  const submitBtn = document.getElementById('submit-btn');
+/* Footer SEO Audit Request Form */
+function initFooterForm() {
+  const form = document.getElementById('footer-lead-form');
+  const feedback = document.getElementById('footer-feedback');
+  const submitBtn = document.getElementById('f-submit');
+  const btnText = document.getElementById('f-submit-text');
 
   if (!form) return;
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    const activeTab = document.querySelector('.form-tab-btn.active')?.getAttribute('data-tab') || 'audit';
-    const name = document.getElementById('form-name')?.value.trim();
-    const email = document.getElementById('form-email')?.value.trim();
+    const name = document.getElementById('f-name').value.trim();
+    const email = document.getElementById('f-email').value.trim();
+    const websiteUrl = document.getElementById('f-website').value.trim();
+    const targetKeywords = document.getElementById('f-keywords').value.trim();
 
-    if (!name || !email) {
-      showFeedback('Please fill in your name and email address.', 'error');
+    if (!name || !email || !websiteUrl) {
+      showFeedback('Please fill in your name, email, and website URL.', 'red');
       return;
     }
 
-    setButtonLoading(true);
+    submitBtn.disabled = true;
+    btnText.textContent = 'Submitting Request...';
 
     try {
-      if (activeTab === 'audit') {
-        const websiteUrl = document.getElementById('form-website')?.value.trim();
-        const targetKeywords = document.getElementById('form-keywords')?.value.trim();
-        const monthlyTraffic = document.getElementById('form-traffic')?.value;
+      const res = await submitAuditRequest({
+        name,
+        email,
+        websiteUrl,
+        targetKeywords: targetKeywords || 'Organic Visibility Lift'
+      });
 
-        if (!websiteUrl) {
-          throw new Error('Please provide your website URL to be audited.');
-        }
-
-        const res = await submitAuditRequest({
-          name,
-          email,
-          websiteUrl,
-          targetKeywords,
-          monthlyTraffic
-        });
-
-        showFeedback(res.message, 'success');
-        form.reset();
-      } else {
-        const message = document.getElementById('form-message')?.value.trim();
-        const service = document.getElementById('form-service')?.value;
-
-        if (!message) {
-          throw new Error('Please write your message or project requirements.');
-        }
-
-        const res = await submitContactForm({
-          name,
-          email,
-          message,
-          service
-        });
-
-        showFeedback(res.message, 'success');
-        form.reset();
-      }
+      showFeedback(res.message || 'Audit Request received! Gazi will review your website within 24 hours.', '#10B981');
+      form.reset();
     } catch (err) {
-      showFeedback(err.message || 'Something went wrong. Please check your inputs.', 'error');
+      showFeedback(err.message || 'Submission error. Please check your details.', '#EF4444');
     } finally {
-      setButtonLoading(false);
+      submitBtn.disabled = false;
+      btnText.textContent = 'Send Request (24h Turnaround) →';
     }
   });
 
-  function showFeedback(msg, type) {
+  function showFeedback(msg, color) {
     if (!feedback) return;
+    feedback.style.display = 'block';
+    feedback.style.background = color === '#10B981' ? 'rgba(16, 185, 129, 0.15)' : 'rgba(239, 68, 68, 0.15)';
+    feedback.style.color = color;
+    feedback.style.border = `1px solid ${color}`;
     feedback.textContent = msg;
-    feedback.className = `form-feedback ${type}`;
-    feedback.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
-
-  function setButtonLoading(isLoading) {
-    if (!submitBtn) return;
-    submitBtn.disabled = isLoading;
-    submitBtn.style.opacity = isLoading ? '0.7' : '1';
-    const btnText = document.getElementById('submit-btn-text');
-    if (btnText) {
-      if (isLoading) {
-        btnText.setAttribute('data-orig', btnText.textContent);
-        btnText.textContent = 'Processing...';
-      } else {
-        btnText.textContent = btnText.getAttribute('data-orig') || 'Submit';
-      }
-    }
-  }
-}
-
-/* ScrollSpy for Navigation Active Link */
-function initScrollSpy() {
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.nav-link');
-
-  window.addEventListener('scroll', () => {
-    let current = '';
-    const scrollY = window.pageYOffset;
-
-    sections.forEach(section => {
-      const sectionHeight = section.offsetHeight;
-      const sectionTop = section.offsetTop - 120;
-      const sectionId = section.getAttribute('id');
-
-      if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-        current = sectionId;
-      }
-    });
-
-    navLinks.forEach(link => {
-      link.classList.remove('active');
-      if (link.getAttribute('href') === `#${current}`) {
-        link.classList.add('active');
-      }
-    });
-  });
 }

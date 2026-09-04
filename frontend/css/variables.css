@@ -1,75 +1,41 @@
 :root {
-  /* Color Palette - Deep Obsidian Luxury Dark (Default) */
-  --bg-primary: #07080B;
-  --bg-secondary: #0D0F15;
-  --bg-surface: #12151E;
-  --bg-surface-elevated: #181C28;
-  --bg-glass: rgba(18, 21, 30, 0.75);
-  --bg-glass-hover: rgba(28, 33, 48, 0.85);
+  /* Brand Primary Vibrant Orange (Directly from Reference Screenshot) */
+  --orange-primary: #FF7A00;
+  --orange-hover: #E86B00;
+  --orange-subtle: #FFF5EC;
+  --orange-tint: rgba(255, 122, 0, 0.08);
+  --orange-border: rgba(255, 122, 0, 0.35);
 
-  /* Borders & Specular Glows */
-  --border-subtle: rgba(255, 255, 255, 0.08);
-  --border-strong: rgba(255, 255, 255, 0.16);
-  --border-glow: rgba(255, 107, 0, 0.35);
+  /* Dark Theme Sections (Hero, Brands, Footer) */
+  --bg-dark-hero: #0F1015;
+  --bg-dark-section: #121319;
+  --bg-dark-card: #181A22;
+  --text-dark-hero: #FFFFFF;
+  --text-dark-muted: #9BA0AE;
+  --border-dark: rgba(255, 255, 255, 0.1);
 
-  /* Accents */
-  --accent-orange: #FF6B00;
-  --accent-amber: #FFA800;
-  --accent-gradient: linear-gradient(135deg, #FF6B00 0%, #FFA800 100%);
-  --accent-glow: 0 0 35px rgba(255, 107, 0, 0.35);
-
-  --accent-neon-green: #10B981;
-  --accent-lime: #CCFF00;
-  --accent-cyan: #06B6D4;
-  --accent-purple: #8B5CF6;
+  /* Light Theme Sections (About, Pricing, Works, Process, Testimonials) */
+  --bg-light: #FFFFFF;
+  --bg-light-alt: #F8F9FC;
+  --bg-light-card: #FFFFFF;
+  --text-light-heading: #121318;
+  --text-light-body: #555B68;
+  --text-light-muted: #848A96;
+  --border-light: rgba(0, 0, 0, 0.08);
 
   /* Typography */
-  --font-display: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  
-  --text-primary: #F9FAFB;
-  --text-secondary: #9CA3AF;
-  --text-muted: #6B7280;
-  --text-inverse: #07080B;
-
-  /* Elevation Shadows */
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.45);
-  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.6);
-  --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.7);
-
-  /* Radii */
-  --radius-sm: 8px;
-  --radius-md: 14px;
-  --radius-lg: 22px;
-  --radius-full: 9999px;
+  --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 
   /* Layout */
-  --max-width: 1240px;
-  --nav-height: 80px;
-  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-smooth: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-}
+  --max-width: 1200px;
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-full: 9999px;
 
-[data-theme="light"] {
-  --bg-primary: #F8FAFC;
-  --bg-secondary: #EEF2F6;
-  --bg-surface: #FFFFFF;
-  --bg-surface-elevated: #F1F5F9;
-  --bg-glass: rgba(255, 255, 255, 0.82);
-  --bg-glass-hover: rgba(255, 255, 255, 0.95);
-
-  --border-subtle: rgba(0, 0, 0, 0.08);
-  --border-strong: rgba(0, 0, 0, 0.16);
-  --border-glow: rgba(255, 107, 0, 0.4);
-
-  --text-primary: #0F172A;
-  --text-secondary: #475569;
-  --text-muted: #64748B;
-  --text-inverse: #FFFFFF;
-
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.08);
-  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.12);
-  --shadow-card: 0 10px 30px -10px rgba(15, 23, 42, 0.08);
+  /* Shadows */
+  --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.06);
+  --shadow-hover: 0 18px 40px rgba(255, 122, 0, 0.18);
+  --shadow-dark: 0 14px 35px rgba(0, 0, 0, 0.45);
 }
