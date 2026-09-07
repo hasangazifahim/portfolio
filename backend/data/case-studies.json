@@ -1,0 +1,62 @@
+[
+  {
+    "id": "scaleup-ecommerce-traffic",
+    "title": "Scaleup E-Commerce Organic Traffic Explosion",
+    "client": "Scaleup Ads Partner Client",
+    "category": "Organic Traffic & Technical SEO",
+    "tag": "E-Commerce Growth",
+    "highlight": "+340% Organic Traffic in 6 Months",
+    "metrics": [
+      { "label": "Traffic Lift", "value": "+340%" },
+      { "label": "Keywords in Top 3", "value": "142" },
+      { "label": "Crawl Errors Fixed", "value": "1,200+" }
+    ],
+    "summary": "Transformed a struggling multi-category online storefront by resolving 1,200+ duplicate canonical issues, redesigning collection URL taxonomy, and implementing product rich snippet schema markup.",
+    "tools": ["Google Search Console", "Screaming Frog", "Ahrefs", "Schema.org"]
+  },
+  {
+    "id": "saas-core-web-vitals",
+    "title": "B2B SaaS Technical Core Web Vitals & Global SERP",
+    "client": "Cloud Productivity Suite",
+    "category": "Technical Architecture",
+    "tag": "SaaS SEO",
+    "highlight": "98/100 Lighthouse Performance & 210% Leads",
+    "metrics": [
+      { "label": "Lighthouse Score", "value": "98/100" },
+      { "label": "Qualified Signups", "value": "+210%" },
+      { "label": "Average Rank", "value": "#2.4" }
+    ],
+    "summary": "Diagnosed heavy JavaScript hydration overhead, deferred critical CSS, optimized multi-regional hreflang annotations, and ranked high-intent transactional search queries above tier-1 competitors.",
+    "tools": ["Lighthouse", "Google PageSpeed Insights", "SEMrush", "GA4"]
+  },
+  {
+    "id": "fintech-search-domination",
+    "title": "FinTech Search Domination in High-Competition Niche",
+    "client": "Payment Solutions Co.",
+    "category": "Competitor & Content Strategy",
+    "tag": "High-Difficulty SERP",
+    "highlight": "+450% Total Search Impressions",
+    "metrics": [
+      { "label": "Search Impressions", "value": "+450%" },
+      { "label": "Domain Rating Lift", "value": "+18 DR" },
+      { "label": "Commercial CTR", "value": "8.4%" }
+    ],
+    "summary": "Conducted exhaustive competitor content gap analysis, crafted authoritative pillar pages targeting commercial fintech queries, and executed digital PR to acquire DR 70+ editorial backlinks.",
+    "tools": ["Ahrefs", "Google Analytics 4", "SurferSEO", "Search Console"]
+  },
+  {
+    "id": "multi-location-local-pack",
+    "title": "Local Multi-Location Map Pack & SERP Clean Sweep",
+    "client": "Healthcare & Diagnostic Centers",
+    "category": "Local SEO & Citations",
+    "tag": "Local Pack #1",
+    "highlight": "#1 Google Map Pack in 8 Major Regions",
+    "metrics": [
+      { "label": "Direct Calls Lift", "value": "+185%" },
+      { "label": "Local Map Pack #1", "value": "8 Locations" },
+      { "label": "Review Score", "value": "4.9 / 5.0" }
+    ],
+    "summary": "Standardized NAP consistency across 60+ top directories, built localized landing pages with Geo-coordinates and LocalBusiness JSON-LD schema, driving massive local foot traffic and patient inquiries.",
+    "tools": ["Google Business Profile", "BrightLocal", "Schema.org", "GA4"]
+  }
+]

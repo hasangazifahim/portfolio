@@ -1,0 +1,136 @@
+{
+  "name": "Gazi Fahim Hasan",
+  "title": "A Creative SEO Specialist",
+  "role": "SEO Executive & Technical SEO Specialist",
+  "tagline": "Navigating the Web, One Ranking at a Time",
+  "bio": "I am a results-driven SEO Executive and Computer Science graduate with proven expertise in leading SEO teams, architecting technical search strategies, and accelerating organic traffic. From in-depth crawl audits to high-ROI search campaigns, I engineer search visibility that converts.",
+  "status": {
+    "available": true,
+    "message": "Available for Q1 SEO Projects & Consultations"
+  },
+  "contact": {
+    "email": "gazifahimhasan1@gmail.com",
+    "phone": "+880 1857571304",
+    "location": "Araihazar, Narayanganj, Bangladesh"
+  },
+  "stats": [
+    { "id": "traffic", "value": "340%", "number": 340, "suffix": "%", "label": "Avg. Organic Traffic Lift" },
+    { "id": "keywords", "value": "1.5K+", "number": 1500, "suffix": "+", "label": "Keywords Ranked Top 3" },
+    { "id": "audits", "value": "120+", "number": 120, "suffix": "+", "label": "Technical Audits Delivered" },
+    { "id": "roi", "value": "770%", "number": 770, "suffix": "%", "label": "Average Client ROI" }
+  ],
+  "experience": [
+    {
+      "period": "Jan 2025 - Present",
+      "role": "SEO Executive",
+      "company": "Scaleup Ads Agency",
+      "description": "Lead and supervise the SEO team to achieve performance targets. Develop and execute advanced SEO strategies to boost organic visibility, and manage on-page, off-page, and technical SEO operations across international client accounts."
+    },
+    {
+      "period": "Jan 2024 - Present",
+      "role": "SEO Expert & Consultant",
+      "company": "Freelance Client Work",
+      "description": "Conduct comprehensive keyword research, competitor gap analysis, and full-scale technical SEO audits. Deliver actionable reporting through Google Analytics 4 and Search Console, partnering with clients for customized ROI-driven search growth."
+    },
+    {
+      "period": "Jan 2024 - Dec 2024",
+      "role": "Training Assistant / Interpreter",
+      "company": "United Interpreters Bangladesh",
+      "description": "Facilitated cross-lingual communication between English and Bangla, assisted senior instructors, and maintained communication chains among diverse professional cohorts."
+    }
+  ],
+  "education": [
+    {
+      "period": "2016 - 2019",
+      "degree": "B.Sc. in Computer Science & Engineering",
+      "institution": "Sonargaon University",
+      "description": "Graduated with strong technical foundation in software engineering, algorithms, web technologies, and systems design—empowering a deep algorithmic understanding of search engine crawling and ranking mechanics."
+    }
+  ],
+  "services": [
+    {
+      "id": "technical-seo",
+      "number": "01",
+      "title": "Technical SEO Architecture",
+      "shortDesc": "Fix crawl errors, site architecture, Core Web Vitals, and indexation bottlenecks.",
+      "description": "Deep-dive diagnostic audits covering XML sitemaps, robots.txt, canonicalization, server status codes, JS rendering, structured schema data, and mobile Core Web Vitals optimization.",
+      "icon": "cpu",
+      "deliverables": ["Full Site Crawl & Health Audit", "Core Web Vitals Optimization", "Schema.org Rich Snippets Markup", "Indexation & Canonicalization Architecture"]
+    },
+    {
+      "id": "onpage-seo",
+      "number": "02",
+      "title": "On-Page & Semantic SEO",
+      "shortDesc": "Strategic content optimization aligned with Google's helpful content systems and search intent.",
+      "description": "Keyword density, semantic LSI mapping, meta tag optimization, internal linking hierarchy, image compression, and content freshness updates that push pages to page one.",
+      "icon": "file-text",
+      "deliverables": ["Search Intent & Entity Mapping", "H1-H6 Hierarchy & Meta Optimization", "Strategic Internal Linking Matrix", "Image SEO & Alt Text Systems"]
+    },
+    {
+      "id": "competitor-keyword",
+      "number": "03",
+      "title": "Keyword & Competitor Intelligence",
+      "shortDesc": "Uncover high-intent, low-competition keyword goldmines and reverse-engineer rivals.",
+      "description": "Exhaustive competitor gap analysis identifying top-performing pages, backlink sources, keyword gaps, and high-converting commercial search queries to capture market share.",
+      "icon": "crosshair",
+      "deliverables": ["High-Intent Commercial Keyword Maps", "Competitor Content Gap Audits", "SERP Feature Opportunity Analysis", "Ranking Difficulty Modeling"]
+    },
+    {
+      "id": "offpage-authority",
+      "number": "04",
+      "title": "Off-Page & Authority Building",
+      "shortDesc": "Earn high-authority, contextual backlinks that establish undeniable domain authority.",
+      "description": "White-hat outreach, digital PR, brand citation building, and broken link reclamation that boost domain rating and sustain resilient search rankings against algorithm updates.",
+      "icon": "link-2",
+      "deliverables": ["High-DR Editorial Outreach", "Local Citations & NAP Consistency", "Toxic Link Audit & Disavowal", "Anchor Text Diversity Strategy"]
+    }
+  ],
+  "skills": [
+    { "name": "Technical SEO Audits", "level": 95, "category": "Core SEO" },
+    { "name": "SEO Strategy & Roadmap", "level": 94, "category": "Core SEO" },
+    { "name": "On-Page Optimization", "level": 96, "category": "Core SEO" },
+    { "name": "Off-Page & Link Building", "level": 90, "category": "Core SEO" },
+    { "name": "Google Search Console", "level": 98, "category": "Analytics" },
+    { "name": "Google Analytics 4", "level": 92, "category": "Analytics" },
+    { "name": "Competitor Analysis", "level": 93, "category": "Strategy" },
+    { "name": "Keyword Research & Clustering", "level": 95, "category": "Strategy" },
+    { "name": "HTML5 / CSS / JavaScript", "level": 88, "category": "Technical" },
+    { "name": "Schema.org Structured Data", "level": 94, "category": "Technical" }
+  ],
+  "recommendations": [
+    {
+      "name": "Bulbul Ahamed",
+      "designation": "Associate Professor & Head",
+      "institution": "Department of CSE, Sonargaon University",
+      "email": "bulbul_cse@su.edu.bd",
+      "phone": "+880 1977880888",
+      "quote": "Gazi Fahim Hasan combines rigorous computational logic with keen analytical drive. His technical background in Computer Science gives him a tremendous structural edge in understanding complex search algorithms and web architectures."
+    },
+    {
+      "name": "Arifur Rahaman",
+      "designation": "Assistant Professor & Coordinator",
+      "institution": "Department of CSE, Sonargaon University",
+      "email": "helpyarifur@gmail.com",
+      "phone": "+880 01820995191",
+      "quote": "Fahim was an outstanding student who always demonstrated a relentless curiosity for how systems operate under the hood. His transition into leading high-performing SEO strategies reflects both deep technical mastery and sharp analytical execution."
+    }
+  ],
+  "workingProcess": [
+    {
+      "step": "01",
+      "title": "Audit & Discovery",
+      "description": "Comprehensive 100+ point technical health audit, competitor reverse engineering, and keyword intent mapping."
+    },
+    {
+      "step": "02",
+      "title": "Strategy & Execution",
+      "description": "Eliminating crawl blockers, optimizing on-page semantics, building high-authority links, and deploying structured data."
+    },
+    {
+      "step": "03",
+      "title": "Domination & Growth",
+      "description": "Tracking real-time ranking climb, refining conversion funnels, and scaling recurring high-ROI organic traffic."
+    }
+  ],
+  "languages": ["Bangla (Native)", "English (Fluent Professional)"]
+}

@@ -1,0 +1,79 @@
+[
+  {
+    "id": "msg_1788774332939_djijs",
+    "type": "contact_message",
+    "createdAt": "2026-09-07T09:45:32.939Z",
+    "name": "Shourav",
+    "email": "sandwitch@gmail.com",
+    "message": "Ami sandwitch khai",
+    "service": "General SEO Consultation",
+    "budget": "Flexible",
+    "status": "new"
+  },
+  {
+    "id": "msg_1788774247591_7y9do",
+    "type": "contact_message",
+    "createdAt": "2026-09-07T09:44:07.591Z",
+    "name": "Gazi Fahim Hasan",
+    "email": "gazifahimhasan1@gmail.com",
+    "message": "This is a test email",
+    "service": "General SEO Consultation",
+    "budget": "Flexible",
+    "status": "new"
+  },
+  {
+    "id": "msg_1788773979633_iaupa",
+    "type": "contact_message",
+    "createdAt": "2026-09-07T09:39:39.633Z",
+    "name": "Alex Morgan",
+    "email": "alex@growthscale.com",
+    "message": "Hi Gazi, interested in working together on an SEO audit.",
+    "service": "General SEO Consultation",
+    "budget": "Flexible",
+    "status": "new"
+  },
+  {
+    "id": "msg_1788760473772_mongm",
+    "type": "contact_message",
+    "createdAt": "2026-09-07T05:54:33.772Z",
+    "name": "Senior Recruiter",
+    "email": "recruiter@growthtech.com",
+    "message": "Hi Gazi, impressed with your technical SEO results. Let us schedule a chat.",
+    "service": "General SEO Consultation",
+    "budget": "Flexible",
+    "status": "new"
+  },
+  {
+    "id": "audit_1788535398628_h8m3g",
+    "type": "seo_audit_request",
+    "createdAt": "2026-09-04T15:23:18.628Z",
+    "name": "Marcus Vance",
+    "email": "marcus@growthmedia.com",
+    "websiteUrl": "https://growthmedia.com",
+    "targetKeywords": "digital marketing agency london",
+    "monthlyTraffic": "Not specified",
+    "status": "pending_review"
+  },
+  {
+    "id": "msg_1788531472852_el9fg",
+    "type": "contact_message",
+    "createdAt": "2026-09-04T14:17:52.852Z",
+    "name": "Sarah Miller",
+    "email": "sarah@growthbrands.io",
+    "message": "Interested in hiring for a full SEO campaign.",
+    "service": "Full SEO Campaign",
+    "budget": "Flexible",
+    "status": "new"
+  },
+  {
+    "id": "audit_1788531472832_gt3nz",
+    "type": "seo_audit_request",
+    "createdAt": "2026-09-04T14:17:52.832Z",
+    "name": "John Test",
+    "email": "john@ecommerce.com",
+    "websiteUrl": "https://ecommerce.com",
+    "targetKeywords": "sustainable footwear",
+    "monthlyTraffic": "5,000 - 25,000",
+    "status": "pending_review"
+  }
+]
