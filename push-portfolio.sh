@@ -6,12 +6,12 @@ DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$DIR"
 
 echo "=========================================================="
-echo "🚀 Pushing 'portfolio' branch to GitHub (gazifahim/Portfolio-Website)..."
+echo "🚀 Pushing 'portfolio' branch to GitHub (hasangazifahim/portfolio)..."
 echo "=========================================================="
 
 git push -u origin portfolio
 
 echo "=========================================================="
 echo "🎉 SUCCESS! Branch 'portfolio' pushed to GitHub!"
-echo "View it at: https://github.com/gazifahim/Portfolio-Website/tree/portfolio"
+echo "View it at: https://github.com/hasangazifahim/portfolio/tree/portfolio"
 echo "=========================================================="
