@@ -55,9 +55,28 @@ router.post('/contact', (req, res) => {
   const saved = saveInquiry(newInquiry);
   if (!saved) {
     return res.status(500).json({ error: 'Failed to record your message. Please try again.' });
-  }
+  console.log(`[Contact] New inquiry from ${newInquiry.name} <${newInquiry.email}> -> Destination: gazifahimhasan1@gmail.com`);
 
-  console.log(`[Contact] New inquiry from ${newInquiry.name} <${newInquiry.email}>`);
+  // Forward to email endpoint asynchronously
+  if (typeof fetch === 'function') {
+    fetch('https://formsubmit.co/ajax/gazifahimhasan1@gmail.com', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'User-Agent': 'PortfolioBackend/1.0'
+      },
+      body: JSON.stringify({
+        name: newInquiry.name,
+        email: newInquiry.email,
+        message: newInquiry.message,
+        _subject: `New SEO Client Message from ${newInquiry.name} (${newInquiry.email})`,
+        _replyto: newInquiry.email,
+        _template: 'table',
+        _captcha: 'false'
+      })
+    }).catch(err => console.error('[Contact Forward Error]', err.message));
+  }
 
   res.status(201).json({
     success: true,
