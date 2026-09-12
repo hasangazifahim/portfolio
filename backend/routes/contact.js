@@ -55,6 +55,8 @@ router.post('/contact', (req, res) => {
   const saved = saveInquiry(newInquiry);
   if (!saved) {
     return res.status(500).json({ error: 'Failed to record your message. Please try again.' });
+  }
+
   console.log(`[Contact] New inquiry from ${newInquiry.name} <${newInquiry.email}> -> Destination: gazifahimhasan1@gmail.com`);
 
   // Forward to email endpoint asynchronously
