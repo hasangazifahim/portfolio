@@ -63,7 +63,21 @@
   }
   </script>
 
-  <!-- Critical layout guarantees (Immune to disk cache, guarantees 64px header clearance) -->
+  <!-- Theme initial state to prevent flash of unstyled theme -->
+  <script>
+    (function() {
+      try {
+        var theme = localStorage.getItem('theme');
+        if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <!-- Critical layout guarantees & theme overrides -->
   <style>
     section[id] { scroll-margin-top: 5rem; }
     main { padding-top: 4rem !important; }
@@ -112,6 +126,94 @@
       display: inline-block;
       transform: translateY(-0.5px);
     }
+
+    /* ========================================================================= */
+    /* Dark Mode Design System Overrides                                         */
+    /* ========================================================================= */
+    html.dark,
+    html.dark body {
+      background-color: #0b0d11 !important;
+      color: #e2e8f0 !important;
+    }
+    html.dark .bg-surface {
+      background-color: #0b0d11 !important;
+    }
+    html.dark .bg-surface\/95 {
+      background-color: rgba(11, 13, 17, 0.95) !important;
+    }
+    html.dark .bg-surface-container-lowest {
+      background-color: #12151c !important;
+    }
+    html.dark .bg-surface-container-lowest\/98 {
+      background-color: rgba(18, 21, 28, 0.98) !important;
+    }
+    html.dark .bg-surface-container-low {
+      background-color: #181c24 !important;
+    }
+    html.dark .bg-surface-container {
+      background-color: #1e232e !important;
+    }
+    html.dark .bg-surface-container-high {
+      background-color: #262c3a !important;
+    }
+    html.dark .bg-surface-container-highest {
+      background-color: #2f3747 !important;
+    }
+    html.dark .bg-surface-container-highest\/90 {
+      background-color: rgba(47, 55, 71, 0.9) !important;
+    }
+    html.dark .text-on-surface {
+      color: #f1f5f9 !important;
+    }
+    html.dark .text-on-surface-variant {
+      color: #94a3b8 !important;
+    }
+    html.dark .text-outline {
+      color: #64748b !important;
+    }
+    html.dark .text-outline-variant {
+      color: #475569 !important;
+    }
+    html.dark .border-outline-variant\/20,
+    html.dark .border-outline-variant\/30,
+    html.dark .border-outline-variant\/40 {
+      border-color: rgba(148, 163, 184, 0.15) !important;
+    }
+    html.dark .border-surface-container-high,
+    html.dark .border-surface-container-high\/60 {
+      border-color: rgba(148, 163, 184, 0.15) !important;
+    }
+    html.dark .bg-primary-fixed {
+      background-color: rgba(30, 58, 138, 0.4) !important;
+      color: #93c5fd !important;
+    }
+    html.dark .bg-secondary-fixed {
+      background-color: rgba(6, 78, 59, 0.45) !important;
+      color: #6ee7b7 !important;
+    }
+    html.dark .text-on-secondary-fixed {
+      color: #6ee7b7 !important;
+    }
+    html.dark input[type="text"],
+    html.dark input[type="email"],
+    html.dark textarea {
+      background-color: #12151c !important;
+      color: #f1f5f9 !important;
+      border-color: rgba(148, 163, 184, 0.25) !important;
+    }
+    html.dark input::placeholder,
+    html.dark textarea::placeholder {
+      color: #64748b !important;
+    }
+    html.dark ::-webkit-scrollbar-track {
+      background: #12151c !important;
+    }
+    html.dark ::-webkit-scrollbar-thumb {
+      background: #334155 !important;
+    }
+    html.dark ::-webkit-scrollbar-thumb:hover {
+      background: #475569 !important;
+    }
   </style>
 
   <!-- Precompiled Static Production Stylesheet (Zero runtime JS, 0ms FOUC) -->
@@ -145,6 +247,11 @@
 
         <!-- Header Actions (Right) -->
         <div class="flex items-center gap-space-xs sm:gap-2.5 xl:gap-space-sm shrink-0">
+          <!-- Dark Mode Toggle Button -->
+          <button id="theme-toggle-btn" class="p-1.5 sm:p-2 text-on-surface hover:text-primary hover:bg-surface-container rounded-xl transition-colors focus:outline-none flex items-center justify-center cursor-pointer" aria-label="Toggle dark mode" title="Toggle dark mode">
+            <span class="material-symbols-outlined text-[20px] sm:text-[22px]" id="theme-toggle-icon">dark_mode</span>
+          </button>
+
           <!-- Desktop Download CV Button -->
           <a class="hidden sm:inline-flex items-center gap-1.5 font-headline-sm text-[13px] xl:text-[14px] bg-surface-container-lowest text-on-surface hover:bg-surface-container hover:text-on-surface px-3 xl:px-3.5 py-1.5 rounded-xl shadow-[0_1px_2px_rgba(15,23,42,0.04)] border border-outline-variant/30 transition-colors whitespace-nowrap" href="assets/Gazi-Fahim-Resume.pdf" download="Gazi-Fahim-Resume.pdf" target="_blank" rel="noopener noreferrer">
             <span class="material-symbols-outlined text-[17px] text-primary">download</span>
@@ -298,7 +405,6 @@
                     <span class="material-symbols-outlined text-primary text-[20px]">hub</span>
                     <span class="font-label-code text-label-code text-on-surface font-semibold uppercase tracking-wider">SEO APPROACH</span>
                   </div>
-                  <span class="font-label-code text-label-code bg-surface-container px-space-2xs py-space-3xs rounded text-on-surface-variant">SEO Workflow</span>
                 </div>
 
                 <!-- Abstract SEO Graphic Diagram -->
@@ -311,7 +417,7 @@
                       </div>
                       <div>
                         <h4 class="font-headline-sm text-[14px] text-on-surface font-semibold leading-tight">Search Intent</h4>
-                        <p class="font-label-code text-[11px] text-on-surface-variant mt-0.5">Audience &amp; Discovery</p>
+                        <p class="font-label-code text-[11px] text-on-surface-variant mt-0.5">Search Intent &amp; Audience</p>
                       </div>
                     </div>
 
@@ -322,7 +428,7 @@
                       </div>
                       <div>
                         <h4 class="font-headline-sm text-[14px] text-on-surface font-semibold leading-tight">SEO Audit</h4>
-                        <p class="font-label-code text-[11px] text-on-surface-variant mt-0.5">Diagnostic Evaluation</p>
+                        <p class="font-label-code text-[11px] text-on-surface-variant mt-0.5">Technical &amp; Content Review</p>
                       </div>
                     </div>
 
@@ -355,7 +461,7 @@
                       </div>
                       <div>
                         <h4 class="font-headline-sm text-[14px] text-on-surface font-semibold leading-tight">Content</h4>
-                        <p class="font-label-code text-[11px] text-on-surface-variant mt-0.5">On-Page &amp; Topical Maps</p>
+                        <p class="font-label-code text-[11px] text-on-surface-variant mt-0.5">On-Page &amp; Content Planning</p>
                       </div>
                     </div>
 
@@ -366,17 +472,14 @@
                       </div>
                       <div>
                         <h4 class="font-headline-sm text-[14px] text-on-surface font-semibold leading-tight">Analytics</h4>
-                        <p class="font-label-code text-[11px] text-secondary font-medium mt-0.5">Performance Tracking</p>
+                        <p class="font-label-code text-[11px] text-secondary font-medium mt-0.5">Performance Monitoring</p>
                       </div>
                     </div>
                   </div>
 
                   <!-- Interconnecting Indicator Badge -->
-                  <div class="mt-space-md p-space-sm bg-surface-container rounded-xl flex items-center justify-between text-on-surface-variant font-label-code text-label-code">
-                    <div class="flex items-center gap-space-xs">
-                      <span class="w-2 h-2 rounded-full bg-secondary"></span>
-                      <span>Implementation &amp; Reporting</span>
-                    </div>
+                  <div class="mt-space-md p-space-sm bg-surface-container rounded-xl flex items-center gap-space-xs text-on-surface-variant font-label-code text-label-code">
+                    <span class="w-2 h-2 rounded-full bg-secondary"></span>
                     <span class="text-primary font-semibold">Implementation &amp; Reporting</span>
                   </div>
                 </div>
@@ -401,7 +504,7 @@
             <!-- Left: Portrait Photo Card -->
             <div class="lg:col-span-4 flex flex-col items-center sm:items-start">
               <div class="relative w-full max-w-sm aspect-square bg-surface-container-low border border-outline-variant/40 rounded-2xl overflow-hidden shadow-sm group">
-                <img src="assets/images/gazi_portrait.jpg" alt="Gazi Fahim Hasan Portrait" width="576" height="576" fetchpriority="high" decoding="async" class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-300" onerror="this.src='assets/images/avatar.svg'"/>
+                <img src="assets/images/gazi_portrait.jpg" alt="Portrait of Gazi Fahim Hasan, SEO Specialist" width="576" height="576" fetchpriority="high" decoding="async" class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-300" onerror="this.src='assets/images/avatar.svg'"/>
                 <div class="absolute bottom-3 left-3 right-3 bg-surface-container-lowest/90 backdrop-blur-md px-space-sm py-space-xs rounded-xl border border-outline-variant/30 flex items-center justify-between">
                   <div class="flex items-center gap-space-xs">
                     <span class="w-2 h-2 rounded-full bg-secondary"></span>
@@ -437,7 +540,7 @@
                   I am a results-driven SEO professional with hands-on experience across technical, on-page, off-page, local, and content SEO. I work with keyword research, competitor analysis, SEO audits, search intent, website optimization, and performance reporting to help improve organic search visibility.
                 </p>
                 <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-                  My experience includes developing SEO strategies, identifying technical and indexing issues, optimizing website content and service pages, supporting local SEO campaigns, and monitoring performance through Google Search Console and Google Analytics. I also collaborate with clients and team members to turn SEO findings into clear, practical SEO actions.
+                  My experience includes developing SEO strategies, identifying technical and indexing issues, optimizing website content and service pages, supporting local SEO campaigns, and monitoring performance through Google Search Console and Google Analytics. I also collaborate with clients and team members to turn SEO findings into clear, practical improvements.
                 </p>
               </div>
 
@@ -486,7 +589,6 @@
       <section class="w-full py-space-3xl" id="experience">
         <div class="max-w-container-max mx-auto px-gutter-mobile lg:px-gutter-desktop">
           <div class="flex flex-col mb-space-xl">
-            <span class="font-label-code text-label-code text-primary uppercase tracking-wider block mb-space-3xs">Professional Experience</span>
             <h2 class="font-headline-lg text-headline-lg text-on-surface">Professional Experience</h2>
           </div>
 
@@ -510,7 +612,7 @@
               <ul class="space-y-space-xs font-body-md text-body-md text-on-surface">
                 <li class="flex items-start gap-space-xs">
                   <span class="material-symbols-outlined text-secondary text-[18px] shrink-0 mt-1">arrow_forward</span>
-                  <span>Led and coordinated SEO work while supporting team goals and keyword performance targets.</span>
+                  <span>Led and coordinated SEO work while supporting team goals and SEO performance targets.</span>
                 </li>
                 <li class="flex items-start gap-space-xs">
                   <span class="material-symbols-outlined text-secondary text-[18px] shrink-0 mt-1">arrow_forward</span>
@@ -554,7 +656,7 @@
                 </li>
                 <li class="flex items-start gap-space-xs">
                   <span class="material-symbols-outlined text-secondary text-[18px] shrink-0 mt-1">arrow_forward</span>
-                  <span>Collaborated with clients on SEO strategies for local SEO, AEO/GEO, and e-commerce websites.</span>
+                  <span>Collaborated with clients on SEO strategies for local, AEO/GEO, and e-commerce SEO projects.</span>
                 </li>
               </ul>
               <div class="pt-space-xs border-t border-surface-container-high">
@@ -584,11 +686,11 @@
               <ul class="space-y-space-xs font-body-md text-body-md text-on-surface">
                 <li class="flex items-start gap-space-xs">
                   <span class="material-symbols-outlined text-secondary text-[18px] shrink-0 mt-1">arrow_forward</span>
-                  <span>Converted spoken technical instructions seamlessly between English and Bangla</span>
+                  <span>Interpreted spoken instructions between English and Bangla.</span>
                 </li>
                 <li class="flex items-start gap-space-xs">
                   <span class="material-symbols-outlined text-secondary text-[18px] shrink-0 mt-1">arrow_forward</span>
-                  <span>Assisted instructors during structured training sessions and maintained cross-cohort communication</span>
+                  <span>Assisted instructors during training sessions and supported communication between participants.</span>
                 </li>
               </ul>
             </div>
@@ -731,10 +833,10 @@
       <section class="w-full py-space-3xl" id="case-studies">
         <div class="max-w-container-max mx-auto px-gutter-mobile lg:px-gutter-desktop">
           <div class="mb-space-2xl">
-            <span class="font-label-code text-label-code text-primary uppercase tracking-wider block mb-space-3xs">SEO Case Studies</span>
-            <h2 class="font-headline-lg text-headline-lg text-on-surface">Selected SEO Case Studies</h2>
+            <span class="font-label-code text-label-code text-primary uppercase tracking-wider block mb-space-3xs">Case Studies</span>
+            <h2 class="font-headline-lg text-headline-lg text-on-surface">SEO Case Studies</h2>
             <p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl mt-space-2xs">
-              Real SEO campaigns across healthcare, e-commerce, and enterprise consulting, demonstrating research, strategy, technical optimization, content architecture, and Search Console performance.
+              Real SEO campaigns across mental health, e-commerce, professional services, and technology consulting, covering research, technical optimization, content, local SEO, and performance monitoring.
             </p>
           </div>
 
@@ -754,7 +856,7 @@
                   <div class="flex flex-wrap items-center gap-x-space-md gap-y-1 font-label-code text-label-code text-on-surface-variant">
                     <span><strong class="text-on-surface font-semibold">Industries:</strong> Mental Health &amp; Counseling +1</span>
                     <span class="text-outline/40">•</span>
-                    <span><strong class="text-on-surface font-semibold">Project Duration:</strong> 6 Month</span>
+                    <span><strong class="text-on-surface font-semibold">Project Duration:</strong> 6 Months</span>
                   </div>
                 </div>
                 <div class="flex items-center shrink-0 md:pt-0.5">
@@ -775,7 +877,7 @@
                       <span class="font-label-code text-label-code text-outline">Starting Metrics</span>
                     </div>
                     <p class="font-body-md text-body-md text-on-surface font-medium leading-relaxed">
-                      The Client came to me with very low organic search (just 154 clicks and 3.85K impressions over 6 months). The goal was to build a real local search visibility strategy for an Atlanta-based counseling practice competing in a crowded mental health/therapy niche.
+                      The client started with 154 clicks and 3.85K impressions over the measured period. The goal was to improve local search visibility for an Atlanta-based counseling practice.
                     </p>
                   </div>
 
@@ -792,7 +894,7 @@
                       </li>
                       <li class="flex items-start gap-space-xs">
                         <span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">check_circle</span>
-                        <span>Optimized on-page for core service pages (Adult Therapy, Child &amp; Teen Counseling, Couples Counseling, Executive Function, Trauma &amp; EMDR) to align with search intent and AEO/GEO answer</span>
+                        <span>Optimized on-page for core service pages (Adult Therapy, Child &amp; Teen Counseling, Couples Counseling, Executive Function, Trauma &amp; EMDR) to better align with search intent and answer-focused search needs.</span>
                       </li>
                       <li class="flex items-start gap-space-xs">
                         <span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">check_circle</span>
@@ -818,7 +920,7 @@
                         <span class="material-symbols-outlined text-[16px] text-primary">monitoring</span>
                         Search Console Performance
                       </span>
-                      <span class="font-label-code text-label-code text-outline">6-Month Proof</span>
+                      <span class="font-label-code text-label-code text-outline">Performance Summary</span>
                     </div>
 
                     <!-- Visual Analytics Telemetry Card with Real Screenshot -->
@@ -829,7 +931,7 @@
                             <span class="w-2 h-2 rounded-full bg-primary inline-block"></span> Clicks: 1.56K
                           </span>
                           <span class="text-[11px] font-label-code font-bold text-secondary flex items-center gap-1">
-                            <span class="w-2 h-2 rounded-full bg-secondary inline-block"></span> Imp: 34.1K
+                            <span class="w-2 h-2 rounded-full bg-secondary inline-block"></span> Impressions: 34.1K
                           </span>
                         </div>
                         <span class="text-[10px] font-label-code text-outline font-semibold">GSC Verified</span>
@@ -854,7 +956,7 @@
                         <span class="font-label-ui text-[11px] leading-[14px] text-outline uppercase block h-8 flex items-start">Organic Clicks</span>
                         <span class="font-metric-display text-headline-md text-on-surface font-semibold block my-1">1.56K</span>
                       </div>
-                      <span class="font-label-code text-[11px] leading-[14px] text-secondary font-semibold block min-h-[42px] flex items-start">+913% (Jump of &gt;900%)</span>
+                      <span class="font-label-code text-[11px] leading-[14px] text-secondary font-semibold block min-h-[42px] flex items-start">+913% (Increase of more than 900%)</span>
                     </div>
                     <div class="bg-surface-container p-space-xs rounded-lg border border-outline-variant/20 flex flex-col justify-between h-full">
                       <div>
@@ -875,14 +977,14 @@
                         <span class="font-label-ui text-[11px] leading-[14px] text-outline uppercase block h-8 flex items-start">Avg Position</span>
                         <span class="font-metric-display text-headline-md text-on-surface font-semibold block my-1">27.7</span>
                       </div>
-                      <span class="font-label-code text-[11px] leading-[14px] text-secondary font-semibold block min-h-[42px] flex items-start">▲ from 35.4</span>
+                      <span class="font-label-code text-[11px] leading-[14px] text-secondary font-semibold block min-h-[42px] flex items-start">27.7 (from 35.4)</span>
                     </div>
                   </div>
 
                   <div class="bg-surface-container p-space-xs rounded-lg space-y-space-3xs font-label-code text-label-code text-on-surface-variant border border-outline-variant/20">
                     <div class="flex justify-between">
                       <span>Project Duration:</span>
-                      <span class="text-on-surface font-semibold">6 Month</span>
+                      <span class="text-on-surface font-semibold">6 Months</span>
                     </div>
                     <div class="flex justify-between">
                       <span>Industries:</span>
@@ -907,7 +1009,7 @@
                   <div class="flex flex-wrap items-center gap-x-space-md gap-y-1 font-label-code text-label-code text-on-surface-variant">
                     <span><strong class="text-on-surface font-semibold">Industries:</strong> E-Commerce / Home &amp; Furniture +1</span>
                     <span class="text-outline/40">•</span>
-                    <span><strong class="text-on-surface font-semibold">Project Duration:</strong> 3 Month</span>
+                    <span><strong class="text-on-surface font-semibold">Project Duration:</strong> 3 Months</span>
                   </div>
                 </div>
                 <div class="flex items-center shrink-0 md:pt-0.5">
@@ -952,7 +1054,7 @@
                       </li>
                       <li class="flex items-start gap-space-xs">
                         <span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">check_circle</span>
-                        <span>Blog writing for covering mattress guides and sleep tips to pull in top-of-funnel search traffic</span>
+                        <span>Created blog content covering mattress guides and sleep tips to support broader organic search visibility.</span>
                       </li>
                       <li class="flex items-start gap-space-xs">
                         <span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">check_circle</span>
@@ -974,7 +1076,7 @@
                         <span class="material-symbols-outlined text-[16px] text-primary">shopping_bag</span>
                         E-Commerce SEO Performance
                       </span>
-                      <span class="font-label-code text-label-code text-outline">3-Month Proof</span>
+                      <span class="font-label-code text-label-code text-outline">E-Commerce SEO Performance</span>
                     </div>
 
                     <!-- Visual Analytics Telemetry Card with Real Screenshot -->
@@ -985,7 +1087,7 @@
                             <span class="w-2 h-2 rounded-full bg-primary inline-block"></span> Clicks: 428
                           </span>
                           <span class="text-[11px] font-label-code font-bold text-secondary flex items-center gap-1">
-                            <span class="w-2 h-2 rounded-full bg-secondary inline-block"></span> Imp: 9.5K
+                            <span class="w-2 h-2 rounded-full bg-secondary inline-block"></span> Impressions: 9.5K
                           </span>
                         </div>
                         <span class="text-[10px] font-label-code text-outline font-semibold">Shopify GSC</span>
@@ -1010,7 +1112,7 @@
                         <span class="font-label-ui text-[11px] leading-[14px] text-outline uppercase block h-8 flex items-start">Organic Clicks</span>
                         <span class="font-metric-display text-headline-md text-on-surface font-semibold block my-1">428</span>
                       </div>
-                      <span class="font-label-code text-[11px] leading-[14px] text-secondary font-semibold block min-h-[42px] flex items-start">+511% (Jump of &gt;500%)</span>
+                      <span class="font-label-code text-[11px] leading-[14px] text-secondary font-semibold block min-h-[42px] flex items-start">+511% (Increase of more than 500%)</span>
                     </div>
                     <div class="bg-surface-container p-space-xs rounded-lg border border-outline-variant/20 flex flex-col justify-between h-full">
                       <div>
@@ -1031,14 +1133,14 @@
                         <span class="font-label-ui text-[11px] leading-[14px] text-outline uppercase block h-8 flex items-start">Avg Position</span>
                         <span class="font-metric-display text-headline-md text-on-surface font-semibold block my-1">8.3</span>
                       </div>
-                      <span class="font-label-code text-[11px] leading-[14px] text-outline font-semibold block min-h-[42px] flex items-start">7.5 to 8.3 (Wider Spread)</span>
+                      <span class="font-label-code text-[11px] leading-[14px] text-outline font-semibold block min-h-[42px] flex items-start">7.5 → 8.3 (Broader keyword coverage)</span>
                     </div>
                   </div>
 
                   <div class="bg-surface-container p-space-xs rounded-lg space-y-space-3xs font-label-code text-label-code text-on-surface-variant border border-outline-variant/20">
                     <div class="flex justify-between">
                       <span>Project Duration:</span>
-                      <span class="text-on-surface font-semibold">3 Month</span>
+                      <span class="text-on-surface font-semibold">3 Months</span>
                     </div>
                     <div class="flex justify-between">
                       <span>Industries:</span>
@@ -1063,7 +1165,7 @@
                   <div class="flex flex-wrap items-center gap-x-space-md gap-y-1 font-label-code text-label-code text-on-surface-variant">
                     <span><strong class="text-on-surface font-semibold">Industries:</strong> Professional Services / AI &amp; Tech Consulting +1</span>
                     <span class="text-outline/40">•</span>
-                    <span><strong class="text-on-surface font-semibold">Project Duration:</strong> 3 Month</span>
+                    <span><strong class="text-on-surface font-semibold">Project Duration:</strong> 3 Months</span>
                   </div>
                 </div>
                 <div class="flex items-center shrink-0 md:pt-0.5">
@@ -1092,7 +1194,7 @@
                     <ul class="space-y-space-2xs font-body-sm text-body-sm text-on-surface-variant">
                       <li class="flex items-start gap-space-xs">
                         <span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">check_circle</span>
-                        <span>AEO GEO &amp; SEO audit to understand why a firm with real case studies (health tech, industrial automation) had almost no organic footprint</span>
+                        <span>Conducted an AEO, GEO, and SEO audit to identify organic search visibility gaps.</span>
                       </li>
                       <li class="flex items-start gap-space-xs">
                         <span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">check_circle</span>
@@ -1104,7 +1206,7 @@
                       </li>
                       <li class="flex items-start gap-space-xs">
                         <span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">check_circle</span>
-                        <span>On page SEO for core service and portfolio pages, sharpening each project case study</span>
+                        <span>On-page SEO for core service and portfolio pages, improving the structure and SEO of relevant project case-study pages.</span>
                       </li>
                       <li class="flex items-start gap-space-xs">
                         <span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">check_circle</span>
@@ -1126,7 +1228,7 @@
                         <span class="material-symbols-outlined text-[16px] text-primary">analytics</span>
                         Organic Search Performance
                       </span>
-                      <span class="font-label-code text-label-code text-outline">3-Month Proof</span>
+                      <span class="font-label-code text-label-code text-outline">Organic Search Performance</span>
                     </div>
 
                     <!-- Visual Analytics Telemetry Card with Real Screenshot -->
@@ -1137,7 +1239,7 @@
                             <span class="w-2 h-2 rounded-full bg-primary inline-block"></span> Clicks: 438
                           </span>
                           <span class="text-[11px] font-label-code font-bold text-secondary flex items-center gap-1">
-                            <span class="w-2 h-2 rounded-full bg-secondary inline-block"></span> Imp: 5.45K
+                            <span class="w-2 h-2 rounded-full bg-secondary inline-block"></span> Impressions: 5.45K
                           </span>
                         </div>
                         <span class="text-[10px] font-label-code text-outline font-semibold">GSC Verified</span>
@@ -1162,7 +1264,7 @@
                         <span class="font-label-ui text-[11px] leading-[14px] text-outline uppercase block h-8 flex items-start">Organic Clicks</span>
                         <span class="font-metric-display text-headline-md text-on-surface font-semibold block my-1">438</span>
                       </div>
-                      <span class="font-label-code text-[11px] leading-[14px] text-secondary font-semibold block min-h-[42px] flex items-start">+476% (Jump of &gt;450%)</span>
+                      <span class="font-label-code text-[11px] leading-[14px] text-secondary font-semibold block min-h-[42px] flex items-start">+476% (Increase of more than 450%)</span>
                     </div>
                     <div class="bg-surface-container p-space-xs rounded-lg border border-outline-variant/20 flex flex-col justify-between h-full">
                       <div>
@@ -1176,21 +1278,21 @@
                         <span class="font-label-ui text-[11px] leading-[14px] text-outline uppercase block h-8 flex items-start">Avg CTR</span>
                         <span class="font-metric-display text-headline-md text-on-surface font-semibold block my-1">8.0%</span>
                       </div>
-                      <span class="font-label-code text-[11px] leading-[14px] text-outline font-semibold block min-h-[42px] flex items-start">18.3% to 8% (Broad Influx)</span>
+                      <span class="font-label-code text-[11px] leading-[14px] text-outline font-semibold block min-h-[42px] flex items-start">18.3% → 8.0%</span>
                     </div>
                     <div class="bg-surface-container p-space-xs rounded-lg border border-outline-variant/20 flex flex-col justify-between h-full">
                       <div>
                         <span class="font-label-ui text-[11px] leading-[14px] text-outline uppercase block h-8 flex items-start">Avg Position</span>
                         <span class="font-metric-display text-headline-md text-on-surface font-semibold block my-1">7.0</span>
                       </div>
-                      <span class="font-label-code text-[11px] leading-[14px] text-secondary font-semibold block min-h-[42px] flex items-start">6 to 7 (Footprint Widened)</span>
+                      <span class="font-label-code text-[11px] leading-[14px] text-secondary font-semibold block min-h-[42px] flex items-start">6.0 → 7.0</span>
                     </div>
                   </div>
 
                   <div class="bg-surface-container p-space-xs rounded-lg space-y-space-3xs font-label-code text-label-code text-on-surface-variant border border-outline-variant/20">
                     <div class="flex justify-between">
                       <span>Project Duration:</span>
-                      <span class="text-on-surface font-semibold">3 Month</span>
+                      <span class="text-on-surface font-semibold">3 Months</span>
                     </div>
                     <div class="flex justify-between">
                       <span>Industries:</span>
@@ -1210,8 +1312,7 @@
       <section class="w-full py-space-3xl" id="process">
         <div class="max-w-container-max mx-auto px-gutter-mobile lg:px-gutter-desktop">
           <div class="mb-space-xl">
-            <span class="font-label-code text-label-code text-primary uppercase tracking-wider block mb-space-3xs">SEO Process</span>
-            <h2 class="font-headline-lg text-headline-lg text-on-surface">How I Approach SEO</h2>
+            <h2 class="font-headline-lg text-headline-lg text-on-surface">SEO Process</h2>
             <p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mt-space-2xs">
               A practical SEO process based on research, prioritization, implementation, and performance monitoring.
             </p>
@@ -1243,7 +1344,7 @@
               <span class="font-metric-display text-metric-display text-outline-variant/50 block mb-space-2xs">04</span>
               <h3 class="font-headline-md text-headline-md text-on-surface mb-space-xs font-semibold">Prioritize</h3>
               <p class="font-body-sm text-body-sm text-on-surface-variant">
-                Determine which high-ROI SEO actions should be addressed first based on priority, potential impact, and implementation effort.
+                Determine which priority SEO actions should be addressed first based on priority, potential impact, and implementation effort.
               </p>
             </div>
             <div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm border border-outline-variant/30 relative">
@@ -1257,7 +1358,7 @@
               <span class="font-metric-display text-metric-display text-outline-variant/50 block mb-space-2xs">06</span>
               <h3 class="font-headline-md text-headline-md text-on-surface mb-space-xs font-semibold">Monitor</h3>
               <p class="font-body-sm text-body-sm text-on-surface-variant">
-                Track Search Console performance, impressions, rank climb deltas, and discover new organic queries.
+                Track Search Console performance, impressions, clicks, rankings, and new organic queries.
               </p>
             </div>
           </div>
@@ -1270,8 +1371,7 @@
       <section class="w-full py-space-3xl bg-surface-container-lowest border-y border-outline-variant/20" id="tools">
         <div class="max-w-container-max mx-auto px-gutter-mobile lg:px-gutter-desktop">
           <div class="mb-space-xl">
-            <span class="font-label-code text-label-code text-primary uppercase tracking-wider block mb-space-3xs">Tools &amp; Platforms</span>
-            <h2 class="font-headline-lg text-headline-lg text-on-surface">Tools &amp; Technologies</h2>
+            <h2 class="font-headline-lg text-headline-lg text-on-surface">Tools &amp; Platforms</h2>
             <p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mt-space-2xs">
               Tools and platforms I use for SEO research, analysis, implementation, and reporting.
             </p>
@@ -1356,7 +1456,7 @@
               </div>
               <h3 class="font-headline-sm text-headline-sm text-on-surface mb-space-xs font-semibold">Hands-On Execution</h3>
               <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
-                Direct experience working across technical, on-page, off-page, local, content, keyword research, and competitor analysis.
+                Hands-on experience across technical, on-page, off-page, local, and content SEO, including keyword research and competitor analysis.
               </p>
             </div>
 
@@ -1403,7 +1503,7 @@
               <span class="font-label-code text-label-code text-secondary-fixed block mb-space-2xs uppercase tracking-wider">Resume / CV</span>
               <h2 class="font-headline-lg text-headline-lg font-bold text-white mb-space-xs">Want the Full Picture?</h2>
               <p class="font-body-md text-body-md text-surface-variant">
-                Download my CV for a complete overview of my professional experience, agency achievements, Sonargaon University CSE education, and technical certifications.
+                Download my CV for a complete overview of my professional experience, SEO skills, education, and project background.
               </p>
             </div>
             <div class="shrink-0">
@@ -1425,10 +1525,10 @@
             
             <!-- Left Contact Info -->
             <div class="lg:col-span-5 flex flex-col">
-              <span class="font-label-ui text-label-ui text-primary uppercase font-bold tracking-widest block mb-space-2xs">INITIATE DIALOGUE</span>
-              <h2 class="font-headline-lg text-headline-lg text-on-surface mb-space-xs font-bold">Let's Connect</h2>
+              <span class="font-label-ui text-label-ui text-primary uppercase font-bold tracking-widest block mb-space-2xs">CONTACT</span>
+              <h2 class="font-headline-lg text-headline-lg text-on-surface mb-space-xs font-bold">Get in Touch</h2>
               <p class="font-body-md text-body-md text-on-surface-variant mb-space-lg">
-                I'm actively open to remote in-house SEO opportunities, growth consultant positions, and professional collaborations aligned with US or global timezones.
+                I’m open to remote SEO opportunities, SEO specialist roles, and professional collaborations with teams and businesses that value practical, results-focused SEO.
               </p>
 
               <div class="space-y-space-sm">
@@ -1464,9 +1564,9 @@
                     <span class="material-symbols-outlined text-[20px]">location_on</span>
                   </div>
                   <div class="flex flex-col">
-                    <span class="font-label-ui text-label-ui text-outline uppercase font-medium">LOCATION / BASE</span>
+                    <span class="font-label-ui text-label-ui text-outline uppercase font-medium">LOCATION</span>
                     <span class="font-label-code text-label-code text-on-surface font-medium">
-                      Araihazar, Narayanganj (Remote / Global)
+                      Bangladesh · Available for Remote Opportunities
                     </span>
                   </div>
                 </div>
@@ -1539,7 +1639,7 @@
         <div class="md:col-span-5 flex flex-col gap-space-xs">
           <span class="font-headline-md text-headline-md text-on-surface font-bold">Gazi Fahim Hasan • SEO Specialist</span>
           <p class="font-body-sm text-body-sm text-on-surface-variant max-w-md">
-            SEO Specialist specializing in Technical SEO, On-Page SEO, Local SEO, AEO/GEO, Content SEO, and Off-Page SEO.
+            SEO Specialist focused on technical, on-page, local, AEO/GEO, content, and off-page SEO.
           </p>
           <div class="flex flex-wrap gap-space-xs mt-space-sm">
             <span class="font-label-code text-label-code bg-surface-container px-space-xs py-space-3xs text-on-surface-variant rounded-lg">Technical SEO</span>

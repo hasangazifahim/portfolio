@@ -4,6 +4,7 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+  initThemeToggle();
   initMobileMenu();
   initContactForm();
   initScrollSpy();
@@ -286,6 +287,35 @@ function initScreenshotLightbox() {
     if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
       closeModal();
     }
+  });
+}
+
+/* Dark Mode Theme Toggle Controller */
+function initThemeToggle() {
+  const toggleBtn = document.getElementById('theme-toggle-btn');
+  const icon = document.getElementById('theme-toggle-icon');
+
+  function updateIcon() {
+    const isDark = document.documentElement.classList.contains('dark');
+    if (icon) {
+      icon.textContent = isDark ? 'light_mode' : 'dark_mode';
+    }
+    if (toggleBtn) {
+      toggleBtn.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Toggle dark mode');
+      toggleBtn.setAttribute('title', isDark ? 'Switch to light mode' : 'Toggle dark mode');
+    }
+  }
+
+  updateIcon();
+
+  if (!toggleBtn) return;
+
+  toggleBtn.addEventListener('click', () => {
+    const isDark = document.documentElement.classList.toggle('dark');
+    try {
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    } catch (e) {}
+    updateIcon();
   });
 }
 
