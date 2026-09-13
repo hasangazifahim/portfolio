@@ -63,18 +63,55 @@
   }
   </script>
 
-  <!-- Theme initial state to prevent flash of unstyled theme -->
+  <!-- Theme Management (Default: Light Mode) -->
   <script>
+    function updateThemeUI(isDark) {
+      document.querySelectorAll('.theme-toggle-icon, #theme-toggle-icon').forEach(function(el) {
+        el.textContent = isDark ? 'light_mode' : 'dark_mode';
+      });
+      document.querySelectorAll('.theme-toggle-btn, #theme-toggle-btn').forEach(function(btn) {
+        btn.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Toggle dark mode');
+        btn.setAttribute('title', isDark ? 'Switch to light mode' : 'Toggle dark mode');
+      });
+      document.querySelectorAll('.theme-toggle-status').forEach(function(status) {
+        status.textContent = isDark ? 'On' : 'Off';
+      });
+    }
+
+    function applyTheme(isDark) {
+      if (isDark) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+      try {
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      } catch (e) {}
+      updateThemeUI(isDark);
+    }
+
+    function toggleTheme() {
+      var isDark = !document.documentElement.classList.contains('dark');
+      applyTheme(isDark);
+    }
+
+    // Default theme is ALWAYS Light. Only activate Dark if explicitly chosen previously in localStorage.
     (function() {
       try {
-        var theme = localStorage.getItem('theme');
-        if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        var savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
           document.documentElement.classList.add('dark');
         } else {
           document.documentElement.classList.remove('dark');
         }
       } catch (e) {}
     })();
+
+    // Synchronize button UI once DOM is ready
+    document.addEventListener('DOMContentLoaded', function() {
+      var isDark = document.documentElement.classList.contains('dark');
+      updateThemeUI(isDark);
+    });
   </script>
 
   <!-- Critical layout guarantees & theme overrides -->
@@ -127,6 +164,11 @@
       transform: translateY(-0.5px);
     }
 
+    /* Theme Toggle Cursor */
+    .theme-toggle-btn {
+      cursor: pointer;
+    }
+
     /* ========================================================================= */
     /* Dark Mode Design System Overrides                                         */
     /* ========================================================================= */
@@ -135,11 +177,23 @@
       background-color: #0b0d11 !important;
       color: #e2e8f0 !important;
     }
+    html.dark header,
+    html.dark .fixed.top-0 {
+      background-color: rgba(11, 13, 17, 0.96) !important;
+      border-bottom-color: rgba(148, 163, 184, 0.15) !important;
+    }
+    html.dark main {
+      background-color: #0b0d11 !important;
+    }
+    html.dark #mobile-menu {
+      background-color: rgba(18, 21, 28, 0.98) !important;
+      border-bottom-color: rgba(148, 163, 184, 0.15) !important;
+    }
     html.dark .bg-surface {
       background-color: #0b0d11 !important;
     }
     html.dark .bg-surface\/95 {
-      background-color: rgba(11, 13, 17, 0.95) !important;
+      background-color: rgba(11, 13, 17, 0.96) !important;
     }
     html.dark .bg-surface-container-lowest {
       background-color: #12151c !important;
@@ -214,6 +268,32 @@
     html.dark ::-webkit-scrollbar-thumb:hover {
       background: #475569 !important;
     }
+    html.dark .hover\:bg-surface-container:hover {
+      background-color: #262c3a !important;
+    }
+    html.dark .hover\:text-on-surface:hover {
+      color: #ffffff !important;
+    }
+    html.dark .theme-toggle-btn:hover {
+      background-color: #262c3a !important;
+      color: #60a5fa !important;
+    }
+    html.dark header a[href*="Resume.pdf"] {
+      background-color: #181c24 !important;
+      color: #f1f5f9 !important;
+      border-color: rgba(148, 163, 184, 0.2) !important;
+    }
+    html.dark footer {
+      background-color: #12151c !important;
+      border-top-color: rgba(148, 163, 184, 0.15) !important;
+    }
+    html.dark footer .border-surface-container-high {
+      border-color: rgba(148, 163, 184, 0.15) !important;
+    }
+    html.dark .bg-inverse-surface {
+      background-color: #181c24 !important;
+      border: 1px solid rgba(148, 163, 184, 0.2) !important;
+    }
   </style>
 
   <!-- Precompiled Static Production Stylesheet (Zero runtime JS, 0ms FOUC) -->
@@ -248,8 +328,8 @@
         <!-- Header Actions (Right) -->
         <div class="flex items-center gap-space-xs sm:gap-2.5 xl:gap-space-sm shrink-0">
           <!-- Dark Mode Toggle Button -->
-          <button id="theme-toggle-btn" class="p-1.5 sm:p-2 text-on-surface hover:text-primary hover:bg-surface-container rounded-xl transition-colors focus:outline-none flex items-center justify-center cursor-pointer" aria-label="Toggle dark mode" title="Toggle dark mode">
-            <span class="material-symbols-outlined text-[20px] sm:text-[22px]" id="theme-toggle-icon">dark_mode</span>
+          <button id="theme-toggle-btn" class="theme-toggle-btn p-1.5 sm:p-2 text-on-surface hover:text-primary hover:bg-surface-container rounded-xl transition-colors focus:outline-none flex items-center justify-center cursor-pointer" aria-label="Toggle dark mode" title="Toggle dark mode" onclick="toggleTheme()">
+            <span class="material-symbols-outlined text-[20px] sm:text-[22px] theme-toggle-icon" id="theme-toggle-icon">dark_mode</span>
           </button>
 
           <!-- Desktop Download CV Button -->
@@ -313,6 +393,17 @@
             <span class="material-symbols-outlined text-[16px] text-outline">chevron_right</span>
           </a>
         </nav>
+
+        <!-- Mobile Theme Switch Item -->
+        <div class="pt-2 pb-1 border-t border-surface-container-high mt-1">
+          <button class="theme-toggle-btn flex items-center justify-between w-full px-3 py-2 rounded-lg text-body-md font-medium text-on-surface hover:bg-surface-container transition-colors cursor-pointer" onclick="toggleTheme()" aria-label="Toggle dark mode">
+            <span class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-[20px] theme-toggle-icon">dark_mode</span>
+              <span>Dark Mode</span>
+            </span>
+            <span class="font-label-code text-[11px] text-outline theme-toggle-status">Off</span>
+          </button>
+        </div>
 
         <!-- Direct Contact Footer -->
         <div class="pt-3 border-t border-surface-container-high mt-1 flex items-center justify-between text-label-code font-label-code text-[11px] text-outline">
@@ -1681,7 +1772,7 @@
   </footer>
 
   <!-- Interactive Interactions Controller -->
-  <script src="js/stitch-interactions.js" defer></script>
+  <script src="js/stitch-interactions.js?v=2.2" defer></script>
 
 </body>
 </html>

@@ -292,30 +292,31 @@ function initScreenshotLightbox() {
 
 /* Dark Mode Theme Toggle Controller */
 function initThemeToggle() {
-  const toggleBtn = document.getElementById('theme-toggle-btn');
-  const icon = document.getElementById('theme-toggle-icon');
-
-  function updateIcon() {
-    const isDark = document.documentElement.classList.contains('dark');
-    if (icon) {
-      icon.textContent = isDark ? 'light_mode' : 'dark_mode';
-    }
-    if (toggleBtn) {
-      toggleBtn.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Toggle dark mode');
-      toggleBtn.setAttribute('title', isDark ? 'Switch to light mode' : 'Toggle dark mode');
-    }
+  const isDark = document.documentElement.classList.contains('dark');
+  if (typeof updateThemeUI === 'function') {
+    updateThemeUI(isDark);
   }
 
-  updateIcon();
-
-  if (!toggleBtn) return;
-
-  toggleBtn.addEventListener('click', () => {
-    const isDark = document.documentElement.classList.toggle('dark');
-    try {
-      localStorage.setItem('theme', isDark ? 'dark' : 'light');
-    } catch (e) {}
-    updateIcon();
+  const buttons = document.querySelectorAll('.theme-toggle-btn, #theme-toggle-btn');
+  buttons.forEach((btn) => {
+    btn.onclick = (e) => {
+      e.preventDefault();
+      if (typeof toggleTheme === 'function') {
+        toggleTheme();
+      } else {
+        const nextDark = !document.documentElement.classList.contains('dark');
+        if (nextDark) {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+        try {
+          localStorage.setItem('theme', nextDark ? 'dark' : 'light');
+        } catch (err) {}
+        const icon = btn.querySelector('.theme-toggle-icon') || document.getElementById('theme-toggle-icon');
+        if (icon) icon.textContent = nextDark ? 'light_mode' : 'dark_mode';
+      }
+    };
   });
 }
 
