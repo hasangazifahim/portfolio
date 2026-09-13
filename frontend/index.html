@@ -74,6 +74,44 @@
     @media (min-width: 1024px) {
       #hero { padding-top: 3rem !important; }
     }
+
+    /* Send Message Button: Pixel-perfect padding, margin & format */
+    #contact-submit-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background-color: #0037B1;
+      color: #ffffff;
+      font-family: Inter, sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.4;
+      padding: 10px 24px;
+      margin-top: 6px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+      transition: background-color 0.15s ease, opacity 0.15s ease;
+    }
+    #contact-submit-btn:hover {
+      background-color: #002D91;
+    }
+    #contact-submit-btn:focus-visible {
+      outline: 2px solid #0037B1;
+      outline-offset: 2px;
+    }
+    #contact-submit-btn:disabled {
+      opacity: 0.65;
+      cursor: not-allowed;
+    }
+    #contact-submit-btn .btn-arrow {
+      font-size: 12px;
+      line-height: 1;
+      display: inline-block;
+      transform: translateY(-0.5px);
+    }
   </style>
 
   <!-- Precompiled Static Production Stylesheet (Zero runtime JS, 0ms FOUC) -->
@@ -1475,10 +1513,10 @@
                   <textarea id="contact-message" name="message" class="w-full bg-surface-container-lowest px-4 py-3 rounded-lg text-body-md text-on-surface font-body-md border border-outline-variant/40 focus:outline-none focus:ring-2 focus:ring-primary shadow-sm resize-y" placeholder="Tell me about the role, website platform, primary organic growth goals, or timeline..." required rows="4"></textarea>
                 </div>
 
-                <div>
-                  <button id="contact-submit-btn" class="inline-flex items-center justify-center gap-2 font-headline-sm text-headline-sm bg-primary text-on-primary hover:bg-primary-container px-6 py-3 rounded-lg shadow-sm transition-colors cursor-pointer" type="submit">
+                <div class="pt-1">
+                  <button id="contact-submit-btn" type="submit">
                     <span id="contact-submit-text">Send Message</span>
-                    <span class="text-sm font-normal select-none">▷</span>
+                    <span class="btn-arrow select-none" aria-hidden="true">▷</span>
                   </button>
                 </div>
               </form>

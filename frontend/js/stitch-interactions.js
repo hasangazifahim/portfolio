@@ -80,8 +80,10 @@ function initContactForm() {
     }
 
     // Set loading state
+    const submitArrow = submitBtn ? submitBtn.querySelector('.btn-arrow') : null;
     if (submitBtn) submitBtn.disabled = true;
     if (submitText) submitText.textContent = 'Sending Message...';
+    if (submitArrow) submitArrow.style.display = 'none';
     hideFeedback();
 
     try {
@@ -137,6 +139,7 @@ function initContactForm() {
     } finally {
       if (submitBtn) submitBtn.disabled = false;
       if (submitText) submitText.textContent = 'Send Message';
+      if (submitArrow) submitArrow.style.display = 'inline-block';
     }
   });
 
