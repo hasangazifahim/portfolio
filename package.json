@@ -5,6 +5,7 @@
   "scripts": {
     "start": "node backend/server.js",
     "dev": "node --watch backend/server.js",
+    "postinstall": "npm install --prefix backend",
     "test:health": "node -e \"fetch('http://localhost:5000/api/health').then(r=>r.json()).then(d=>console.log('API Status:', d)).catch(e=>console.error(e))\""
   },
   "keywords": [
