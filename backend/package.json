@@ -7,10 +7,16 @@
     "start": "node server.js",
     "dev": "node --watch server.js"
   },
-  "keywords": ["portfolio", "seo", "backend", "express"],
+  "keywords": [
+    "portfolio",
+    "seo",
+    "backend",
+    "express"
+  ],
   "author": "Gazi Fahim Hasan",
   "license": "MIT",
   "dependencies": {
+    "compression": "^1.8.2",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2"
