@@ -1387,8 +1387,8 @@
             
             <!-- Left Contact Info -->
             <div class="lg:col-span-5 flex flex-col">
-              <span class="font-label-code text-label-code text-primary uppercase tracking-wider block mb-space-3xs">Contact</span>
-              <h2 class="font-headline-lg text-headline-lg text-on-surface mb-space-xs">Let's Connect</h2>
+              <span class="font-label-ui text-label-ui text-primary uppercase font-bold tracking-widest block mb-space-2xs">INITIATE DIALOGUE</span>
+              <h2 class="font-headline-lg text-headline-lg text-on-surface mb-space-xs font-bold">Let's Connect</h2>
               <p class="font-body-md text-body-md text-on-surface-variant mb-space-lg">
                 I'm actively open to remote in-house SEO opportunities, growth consultant positions, and professional collaborations aligned with US or global timezones.
               </p>
@@ -1400,7 +1400,7 @@
                     <span class="material-symbols-outlined text-[20px]">mail</span>
                   </div>
                   <div class="flex flex-col">
-                    <span class="font-label-ui text-label-ui text-outline uppercase font-medium">Direct Email</span>
+                    <span class="font-label-ui text-label-ui text-outline uppercase font-medium">DIRECT EMAIL</span>
                     <a class="font-label-code text-label-code text-on-surface font-medium hover:text-primary transition-colors" href="mailto:gazifahimhasan1@gmail.com">
                       gazifahimhasan1@gmail.com
                     </a>
@@ -1413,7 +1413,7 @@
                     <span class="material-symbols-outlined text-[20px]">chat</span>
                   </div>
                   <div class="flex flex-col">
-                    <span class="font-label-ui text-label-ui text-outline uppercase font-medium">WhatsApp / Direct</span>
+                    <span class="font-label-ui text-label-ui text-outline uppercase font-medium">WHATSAPP / DIRECT</span>
                     <a class="font-label-code text-label-code text-on-surface font-medium hover:text-secondary transition-colors" href="https://wa.me/8801857571304" target="_blank" rel="noopener noreferrer">
                       +880 1857571304
                     </a>
@@ -1426,9 +1426,9 @@
                     <span class="material-symbols-outlined text-[20px]">location_on</span>
                   </div>
                   <div class="flex flex-col">
-                    <span class="font-label-ui text-label-ui text-outline uppercase font-medium">Location</span>
+                    <span class="font-label-ui text-label-ui text-outline uppercase font-medium">LOCATION / BASE</span>
                     <span class="font-label-code text-label-code text-on-surface font-medium">
-                      Bangladesh · Available for Remote Opportunities
+                      Araihazar, Narayanganj (Remote / Global)
                     </span>
                   </div>
                 </div>
@@ -1439,7 +1439,7 @@
                     <span class="material-symbols-outlined text-[20px]">description</span>
                   </div>
                   <div class="flex flex-col">
-                    <span class="font-label-ui text-label-ui text-outline uppercase font-medium">Resume Document</span>
+                    <span class="font-label-ui text-label-ui text-outline uppercase font-medium">RESUME DOCUMENT</span>
                     <a class="font-label-code text-label-code text-on-surface font-medium hover:text-primary transition-colors" href="assets/Gazi-Fahim-Resume.pdf" download="Gazi-Fahim-Resume.pdf" target="_blank" rel="noopener noreferrer">
                       Gazi-Fahim-Resume.pdf
                     </a>
@@ -1448,24 +1448,40 @@
               </div>
             </div>
 
-            <!-- Direct Contact CTA Card -->
-            <div class="lg:col-span-7 bg-surface-container-low p-space-lg lg:p-space-xl rounded-2xl shadow-sm border border-outline-variant/30 flex flex-col justify-between">
-              <div>
-                <h3 class="font-headline-md text-headline-md text-on-surface mb-space-sm font-semibold">Send a Direct Message</h3>
-                <p class="font-body-md text-body-md text-on-surface-variant mb-space-lg leading-relaxed">
-                  Have an open SEO position, website audit need, or consulting project? Feel free to reach out directly via email or message me on WhatsApp.
-                </p>
-              </div>
-              <div class="flex flex-wrap items-center gap-space-sm pt-space-md border-t border-outline-variant/20">
-                <a class="inline-flex items-center justify-center gap-space-2xs font-headline-sm text-headline-sm bg-primary text-on-primary hover:bg-primary-container px-space-xl py-space-sm rounded-lg shadow-sm transition-colors" href="mailto:gazifahimhasan1@gmail.com">
-                  <span class="material-symbols-outlined text-[20px]">mail</span>
-                  <span>Email Me</span>
-                </a>
-                <a class="inline-flex items-center justify-center gap-space-2xs font-headline-sm text-headline-sm bg-surface-container text-on-surface hover:bg-surface-container-high px-space-xl py-space-sm rounded-lg border border-outline-variant/40 transition-colors" href="https://wa.me/8801857571304" target="_blank" rel="noopener noreferrer">
-                  <span class="material-symbols-outlined text-[20px] text-secondary">chat</span>
-                  <span>WhatsApp</span>
-                </a>
-              </div>
+            <!-- Direct Contact Form Card -->
+            <div class="lg:col-span-7 bg-surface-container-low p-space-lg lg:p-space-xl rounded-2xl shadow-sm border border-outline-variant/30">
+              <h3 class="font-headline-md text-headline-md text-on-surface mb-space-md font-semibold">Send a Direct Message</h3>
+              
+              <!-- Real-time submission feedback message banner -->
+              <div id="contact-feedback" class="hidden font-body-sm text-body-sm font-medium mb-space-md"></div>
+
+              <form id="stitch-contact-form" action="https://formsubmit.co/gazifahimhasan1@gmail.com" method="POST" class="space-y-space-md">
+                <input type="hidden" name="_subject" value="New SEO Client Inquiry - Gazi Fahim Portfolio">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_template" value="table">
+
+                <div>
+                  <label for="contact-name" class="block font-label-ui text-label-ui text-on-surface font-semibold mb-space-2xs uppercase tracking-wider">YOUR NAME</label>
+                  <input id="contact-name" name="name" class="w-full bg-surface-container-lowest px-4 py-3 rounded-lg text-body-md text-on-surface font-body-md border border-outline-variant/40 focus:outline-none focus:ring-2 focus:ring-primary shadow-sm" placeholder="e.g. Alex Morgan" required type="text"/>
+                </div>
+
+                <div>
+                  <label for="contact-email" class="block font-label-ui text-label-ui text-on-surface font-semibold mb-space-2xs uppercase tracking-wider">WORK EMAIL</label>
+                  <input id="contact-email" name="email" class="w-full bg-surface-container-lowest px-4 py-3 rounded-lg text-body-md text-on-surface font-body-md border border-outline-variant/40 focus:outline-none focus:ring-2 focus:ring-primary shadow-sm" placeholder="alex@company.com" required type="email"/>
+                </div>
+
+                <div>
+                  <label for="contact-message" class="block font-label-ui text-label-ui text-on-surface font-semibold mb-space-2xs uppercase tracking-wider">MESSAGE</label>
+                  <textarea id="contact-message" name="message" class="w-full bg-surface-container-lowest px-4 py-3 rounded-lg text-body-md text-on-surface font-body-md border border-outline-variant/40 focus:outline-none focus:ring-2 focus:ring-primary shadow-sm resize-y" placeholder="Tell me about the role, website platform, primary organic growth goals, or timeline..." required rows="4"></textarea>
+                </div>
+
+                <div>
+                  <button id="contact-submit-btn" class="inline-flex items-center justify-center gap-2 font-headline-sm text-headline-sm bg-primary text-on-primary hover:bg-primary-container px-6 py-3 rounded-lg shadow-sm transition-colors cursor-pointer" type="submit">
+                    <span id="contact-submit-text">Send Message</span>
+                    <span class="text-sm font-normal select-none">▷</span>
+                  </button>
+                </div>
+              </form>
             </div>
 
           </div>

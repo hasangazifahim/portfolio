@@ -143,17 +143,30 @@ function initContactForm() {
   function showFeedback(msg, type) {
     if (!feedbackEl) return;
     feedbackEl.textContent = msg;
-    feedbackEl.classList.remove('hidden', 'bg-emerald-50', 'text-emerald-800', 'border-emerald-300', 'bg-red-50', 'text-red-800', 'border-red-300');
+    feedbackEl.classList.remove('hidden');
+    feedbackEl.style.display = 'block';
+    feedbackEl.style.padding = '12px 16px';
+    feedbackEl.style.borderRadius = '8px';
+    feedbackEl.style.fontSize = '14px';
+    feedbackEl.style.lineHeight = '1.5';
+    feedbackEl.style.marginBottom = '16px';
     
     if (type === 'success') {
-      feedbackEl.classList.add('bg-emerald-50', 'text-emerald-800', 'border', 'border-emerald-300');
+      feedbackEl.style.backgroundColor = '#ECFDF5';
+      feedbackEl.style.color = '#065F46';
+      feedbackEl.style.border = '1px solid #A7F3D0';
     } else {
-      feedbackEl.classList.add('bg-red-50', 'text-red-800', 'border', 'border-red-300');
+      feedbackEl.style.backgroundColor = '#FEF2F2';
+      feedbackEl.style.color = '#991B1B';
+      feedbackEl.style.border = '1px solid #FECACA';
     }
   }
 
   function hideFeedback() {
-    if (feedbackEl) feedbackEl.classList.add('hidden');
+    if (feedbackEl) {
+      feedbackEl.classList.add('hidden');
+      feedbackEl.style.display = 'none';
+    }
   }
 }
 
