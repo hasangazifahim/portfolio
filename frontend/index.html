@@ -27,7 +27,8 @@
   <meta property="twitter:description" content="SEO Specialist. Specializing in Technical SEO, On-Page SEO, Local SEO, and Data-Driven Search Growth."/>
   <meta property="twitter:image" content="assets/images/seo_growth.jpg"/>
 
-  <!-- High-Performance Webfonts & Material Symbols -->
+  <!-- Local High-Performance Fonts & Material Symbols (Self-Hosted for 100% Adblock/Firewall Immunity) -->
+  <link rel="preload" href="assets/fonts/material-symbols-outlined.woff2" as="font" type="font/woff2" crossorigin/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
@@ -294,10 +295,34 @@
       background-color: #181c24 !important;
       border: 1px solid rgba(148, 163, 184, 0.2) !important;
     }
+
+    /* Guaranteed Local Material Symbols (First-Party, Adblock-Immune) */
+    @font-face {
+      font-family: 'Material Symbols Outlined';
+      font-style: normal;
+      font-weight: 100 700;
+      font-display: block;
+      src: url('assets/fonts/material-symbols-outlined.woff2') format('woff2');
+    }
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined' !important;
+      font-weight: normal;
+      font-style: normal;
+      font-size: 24px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-feature-settings: 'liga';
+      -webkit-font-smoothing: antialiased;
+    }
   </style>
 
   <!-- Precompiled Static Production Stylesheet (Zero runtime JS, 0ms FOUC) -->
-  <link rel="stylesheet" href="css/bundle.css?v=2.1"/>
+  <link rel="stylesheet" href="css/bundle.css?v=2.2"/>
 </head>
 
 <body class="bg-surface font-body-md text-on-surface antialiased">
