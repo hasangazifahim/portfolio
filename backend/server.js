@@ -42,11 +42,11 @@ const frontendPath = path.join(__dirname, '..', 'frontend');
 app.use(express.static(frontendPath, {
   maxAge: '1d',
   setHeaders: (res, filePath) => {
-    // Immutable cache for static assets (css, js, images, webp, svg, fonts)
-    if (/\.(css|js|woff2?|png|jpg|jpeg|svg|webp|ico|pdf)$/i.test(filePath)) {
+    // Cache control: no-cache in dev so edits reflect instantly, immutable in production
+    if (process.env.NODE_ENV === 'production' && /\.(css|js|woff2?|png|jpg|jpeg|svg|webp|ico|pdf)$/i.test(filePath)) {
       res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
-    } else if (/\.html$/i.test(filePath)) {
-      res.setHeader('Cache-Control', 'public, max-age=0, must-revalidate');
+    } else {
+      res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
     }
   }
 }));
