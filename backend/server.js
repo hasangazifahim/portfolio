@@ -37,6 +37,13 @@ app.use((req, res, next) => {
 app.use('/api', apiRouter);
 app.use('/api', contactRouter);
 
+// Serve CV Project & Interactive Studio
+const cvProjectPath = path.join(__dirname, '..', '..', 'cv-project');
+app.use('/cv', express.static(cvProjectPath));
+app.get('/editor', (req, res) => {
+  res.redirect('/cv/editor.html');
+});
+
 // Serve Frontend Static Files with high-performance Cache-Control headers
 const frontendPath = path.join(__dirname, '..', 'frontend');
 app.use(express.static(frontendPath, {
