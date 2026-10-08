@@ -36,8 +36,8 @@ function initAboutTabs() {
     experience: [
       { num: '2025 - PRESENT', title: 'Scaleup Ads Agency', sub: 'SEO Executive supervising SEO team targets', active: true },
       { num: '2024 - PRESENT', title: 'Freelance SEO Specialist', sub: 'Direct client consulting & high-ROI roadmaps' },
-      { num: '2024 - 2024', title: 'United Interpreters', sub: 'Bilingual Training Assistant / Interpreter' },
-      { num: 'GLOBAL ACCTS', title: 'E-Commerce & SaaS', sub: 'Multi-location and international SERP campaigns' }
+      { num: '2023 - 2024', title: 'Windx Ltd.', sub: 'SEO Executive executing multi-project SEO growth' },
+      { num: '2024 - 2024', title: 'United Interpreters', sub: 'Bilingual Training Assistant / Interpreter' }
     ]
   };
 
